@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --introText: #37536c;
 }
 
 .homeImgTxt{
@@ -13,4 +14,22 @@
   color: #fff;
   /* font-size: 2vw; */
   /* font-weight: 700; */
+}
+.heading{
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #04203A;
+}
+
+li{
+  list-style: none;
+}
+.introTxt{
+  color: var(--introText);
+  font: 16px;
+  letter-spacing: 2px;
+}
+.aboutTxt{
+  color: var(--introText);
 }

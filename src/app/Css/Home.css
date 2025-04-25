@@ -1,0 +1,11 @@
+.HomeBannerAbsContent{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.HomeBannerText{
+    justify-content: center;
+    align-items: center;
+
+}
