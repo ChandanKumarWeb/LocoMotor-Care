@@ -5,7 +5,8 @@
     align-items: center;
 }
 .HomeBannerText{
-    justify-content: center;
+    padding: 0px 10px;
+    justify-content: end;
     align-items: center;
 
 }

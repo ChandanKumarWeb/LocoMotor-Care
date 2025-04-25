@@ -1,5 +1,7 @@
-
-function Appointmentbtn() {
+interface AppointmentbtnProps{
+  btnName: string;
+}
+const Appointmentbtn: React.FC<AppointmentbtnProps>= ({btnName}) => {
   return (
     <div>
       <button
@@ -9,10 +11,10 @@ function Appointmentbtn() {
              active:scale-95 transition duration-100 transform"
             >
               <span className="absolute -inset-1.5" />
-              <span className="">Get Appointment</span>
+              <span className="">{btnName}</span>
             </button>
     </div>
   )
 }
 
-export default Appointmentbtn
+export default Appointmentbtn;

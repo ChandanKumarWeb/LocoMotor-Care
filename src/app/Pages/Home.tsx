@@ -1,105 +1,66 @@
 "use client";
-import '../Css/Home.css'
+import "../Css/Home.css";
 import Image from "next/image";
 import Appointmentbtn from "../Components/Appointmentbtn";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import LeftImgSection from "../Components/LeftImgSection";
 import RightImgSection from "../Components/RightImgSection";
 import homebg from "../../../public/Images/homebg.jpeg";
-import homeAbsImg from "../../../public/Images/homeAbsImg.jpeg";
 import introImg from "../../../public/Images/introImg.jpeg";
 function Home() {
   return (
     <div>
       {/* HERO SECTION */}
-      <div className="relative w-full h-[100vh]">
-        <Image
-          src={homebg}
-          alt="home background img"
-          fill
-          className="h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40"></div>
+      <div className="relative w-full h-screen">
+        <div className="relative w-full h-full">
+          <Image
+            src={homebg}
+            alt="home background img"
+            fill
+            className="h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="HomeBannerAbsContent absolute top-35 left-0 lg:top-50 px-0 lg:px-10">
-          <div className="HomeBannerText w-full flex flex-col lg:flex-row gap-5">
-            <motion.div
-              className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[45vw] flex flex-col justify-center text-white gap-4"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <motion.h1
-                className="text-2xl font-bold"
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                Reclaim Your Life from Pain
-              </motion.h1>
-              <motion.p
-                className="text-sm max-w-xl"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                At Locomotor Care, we empower you to regain your mobility and
-                strength. Experience personalized physiotherapy tailored to your
-                journey towards pain-free living.
-              </motion.p>
+          <div className="HomeBannerAbsContent absolute top-80 left-0 lg:top-80 px-0 lg:px-10">
+            <div className="HomeBannerText w-full flex  gap-5">
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
+                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[35vw] flex flex-col justify-end text-white gap-4"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <Appointmentbtn />
+                <motion.h1
+                  className="text-2xl font-bold"
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  Reclaim Your Life from Pain
+                </motion.h1>
+                <motion.p
+                  className="text-sm max-w-xl"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                >
+                  At Locomotor Care, we empower you to regain your mobility and
+                  strength. Experience personalized physiotherapy tailored to
+                  your journey towards pain-free living.
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.8 }}
+                >
+                  <Appointmentbtn btnName={"Book Appointment"} />
+                </motion.div>
               </motion.div>
-            </motion.div>
-
-            <motion.div
-              className="w-full flex justify-center items-center"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-            >
-              <Image
-                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[35vw] h-auto lg:h-[80vh]"
-                src={homeAbsImg}
-                width={600}
-                height={600}
-                alt="Person exercising"
-              />
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* STAR RATING SECTION */}
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="container my-4"
-      >
-        <div className="flex mt-4 h-auto w-full lg:w-48  justify-center gap-2 ">
-          {Array(5)
-            .fill(0)
-            .map((_, i) => (
-              <FontAwesomeIcon
-                key={i}
-                icon={faStar}
-                style={{ color: "#FFD43B" }}
-              />
-            ))}
-        </div>
-        <div className="flex flex-col w-full lg:w-48 items-center">
-          <p className="font-bold">4.8 average rating</p>
-          <p>Based on 268 reviews</p>
-        </div>
-      </motion.div>
 
       {/* INTRO SECTION */}
       <motion.div
@@ -175,27 +136,35 @@ function Home() {
       >
         <h1>Comprehensive Care Solutions</h1>
       </motion.div>
-     <LeftImgSection
-  img="/Images/leftImgSectionImage/1stImg.jpeg"
-  head="01."
-  heading="Orthopedic"
-  pera="Our orthopedic physiotherapy services target musculoskeletal issues to alleviate pain and enhance function. We work with you to develop a personalized recovery plan."
-/>
+      <LeftImgSection
+        img="/Images/leftImgSectionImage/1stImg.jpeg"
+        head="01."
+        heading="Orthopedic"
+        pera="Our orthopedic physiotherapy services target musculoskeletal issues to alleviate pain and enhance function. We work with you to develop a personalized recovery plan."
+      />
 
-<RightImgSection
-  img="/Images/RightImgSectionImage/2ndImg.jpeg"
-  head="02."
-  heading="Sports Rehab"
-  pera="Our sports injury rehab services are designed for athletes of all levels, focusing on rehabilitation and on-field management. We ensure you get back in the game safely and effectively."
-/>
+      <RightImgSection
+        img="/Images/RightImgSectionImage/2ndImg.jpeg"
+        head="02."
+        heading="Sports Rehab"
+        pera="Our sports injury rehab services are designed for athletes of all levels, focusing on rehabilitation and on-field management. We ensure you get back in the game safely and effectively."
+      />
 
-<LeftImgSection
-  img="/Images/leftImgSectionImage/3rdImg.jpeg"
-  head="03."
-  heading="Neuro Rehab"
-  pera="Our neuro rehabilitation services aim to improve quality of life for individuals with neurological conditions. We focus on recovery through targeted interventions and compassionate support."
-/>
-
+      <LeftImgSection
+        img="/Images/leftImgSectionImage/3rdImg.jpeg"
+        head="03."
+        heading="Neuro Rehab"
+        pera="Our neuro rehabilitation services aim to improve quality of life for individuals with neurological conditions. We focus on recovery through targeted interventions and compassionate support."
+      />
+      <motion.div
+        className="flex justify-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Appointmentbtn btnName={"See More"} />
+      </motion.div>
     </div>
   );
 }
