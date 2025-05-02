@@ -9,6 +9,8 @@ import LeftImgSection from "../Components/LeftImgSection";
 import RightImgSection from "../Components/RightImgSection";
 import homebg from "../../../public/Images/homebg.jpeg";
 import introImg from "../../../public/Images/introImg.jpeg";
+import BackToTopButton from "../Components/BackToTopButton";
+import CarouselPlugin from "@/app/Components/Carousel";
 function Home() {
   return (
     <div>
@@ -21,12 +23,12 @@ function Home() {
             fill
             className="h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
 
-          <div className="HomeBannerAbsContent absolute top-80 left-0 lg:top-80 px-0 lg:px-10">
+          <div className="HomeBannerAbsContent absolute top-80 left-0 lg:top-60 px-0 lg:px-10">
             <div className="HomeBannerText w-full flex  gap-5">
               <motion.div
-                className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[35vw] flex flex-col justify-end text-white gap-4"
+                className="w-full max-w-xs sm:max-w-sm md:max-w-md items-center lg:max-w-[35vw] flex flex-col justify-center lg:items-start text-white gap-4"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -40,7 +42,7 @@ function Home() {
                   Reclaim Your Life from Pain
                 </motion.h1>
                 <motion.p
-                  className="text-sm max-w-xl"
+                  className="text-sm max-w-xl text-center lg:text-start"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
@@ -92,17 +94,17 @@ function Home() {
 
         {/* Text Section */}
         <div className="flex flex-col gap-4 justify-center w-full lg:w-1/2">
-          <h1 className="font-semibold text-lg md:text-xl lg:text-2xl">
+          <h1 className="font-semibold text-lg md:text-xl lg:text-2xl text-blue-900 dark:text-blue-100">
             Founded by Dr. Yash Pratihasta, Locomotor Care aims to bring
             cutting-edge physiotherapy services to your doorstep. Our dedicated
             approach focuses on individual patient needs.
           </h1>
-          <p className="text-sm md:text-base">
+          <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">
             We believe that recovery is possible for everyone. With a
             combination of expert knowledge and compassionate care, we support
             our patients every step of the way.
           </p>
-          <ul className="list-none space-y-2">
+          <ul className="list-none space-y-2 text-gray-700 dark:text-gray-300">
             <li className="flex items-start">
               <FontAwesomeIcon
                 icon={faCircle}
@@ -157,14 +159,25 @@ function Home() {
         pera="Our neuro rehabilitation services aim to improve quality of life for individuals with neurological conditions. We focus on recovery through targeted interventions and compassionate support."
       />
       <motion.div
-        className="flex justify-center"
+        className="flex justify-center my-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.8 }}
       >
-        <Appointmentbtn btnName={"See More"} />
+        <Appointmentbtn btnName={"More Services"} />
       </motion.div>
+      <motion.div
+        className="flex justify-center my-4"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8 }}
+      >
+        <CarouselPlugin />
+      </motion.div>
+
+      <BackToTopButton />
     </div>
   );
 }

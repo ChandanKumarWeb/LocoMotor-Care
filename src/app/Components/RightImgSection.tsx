@@ -28,8 +28,8 @@ const RightImgSection: React.FC<RightImgSectionProps> = ({
           <h1 className="font-semibold text-lg md:text-xl lg:text-2xl">
             {head}
           </h1>
-          <p className="heading md:text-base ">{heading}</p>
-          <p>{pera}</p>
+          <p className="heading text-blue-900 dark:text-blue-100 md:text-base ">{heading}</p>
+          <p className="text-gray-700 dark:text-gray-300">{pera}</p>
         </div>
         {/* Image Section */}
         <div className="relative w-full sm:w-3/4 md:w-2/3 lg:w-1/2 aspect-[4/3] order-1 lg:order-2">

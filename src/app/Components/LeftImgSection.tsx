@@ -33,10 +33,10 @@ interface LeftImgSectionProps {
           <h1 className="font-semibold text-lg md:text-xl lg:text-2xl">
             {head}
           </h1>
-          <p className="heading md:text-base ">
+          <p className="heading text-blue-900 dark:text-blue-100 md:text-base ">
             {heading}
           </p>
-          <p>
+          <p className="text-gray-700 dark:text-gray-300">
             {pera}
           </p>
         </div>

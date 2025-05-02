@@ -12,6 +12,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import logo from "../../../public/Images/Logo.png";
 import classNames from "classnames";
+import { ModeToggle } from "./ModeToogle";
 
 const navigation = [
   { name: "Home", href: "/", current: false },
@@ -37,7 +38,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <div className="flex flex-1 items-center lg:justify-between sm:items-stretch sm:justify-start">
-            <div className="flex flex-1 justify-center lg:justify-start items-center">
+            <div className="flex flex-1 justify-center mt-5 lg:mt-0 lg:justify-start items-center">
               <Image alt="logo" src={logo} width={100} height={100} className="logo" />
               <h3 className="companyName hidden lg:inline">LocoMotor Care</h3>
             </div>
@@ -62,6 +63,7 @@ export default function Navbar() {
                     </Link>
                   );
                 })}
+                <ModeToggle/>
               </div>
             </div>
           </div>
@@ -75,7 +77,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       <DisclosurePanel className="sm:hidden">
-        <div className="space-y-1 px-2 pt-2 pb-3">
+        <div className="space-y-1 px-2 pt-2 pb-3 text-center w-full d-flex items-center justify-center">
           {navigation.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -84,7 +86,7 @@ export default function Navbar() {
                 href={item.href}
                 className={classNames(
                   isActive
-                    ? "bg-gray-900 text-white"
+                    ? "bg-gray-900 text-white w-fit "
                     : "text-gray-300 hover:bg-gray-700 hover:text-white",
                   "block rounded-md px-3 py-2 text-base font-medium"
                 )}
@@ -93,6 +95,7 @@ export default function Navbar() {
               </Link>
             );
           })}
+        <ModeToggle/>
         </div>
       </DisclosurePanel>
     </Disclosure>

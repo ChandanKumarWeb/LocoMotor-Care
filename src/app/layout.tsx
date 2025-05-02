@@ -1,8 +1,10 @@
 // app/layout.tsx
 import Navbar from './Components/Navbar';
+import { ThemeProvider } from "@/app/Components/theme-provider"
 import './globals.css';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
+import Footer from './Components/Footer';
 config.autoAddCss = false
 
 
@@ -10,16 +12,23 @@ export const metadata = {
   title: 'Locomotor Care',
   description: 'Physiotherapy Website',
 };
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-      {children}
-        <Navbar/>
-        
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Navbar />
+        </ThemeProvider>
+        <Footer/>
         {/* <Footer /> */}
       </body>
     </html>
   );
 }
+
