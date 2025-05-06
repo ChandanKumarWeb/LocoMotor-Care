@@ -16,7 +16,7 @@ import { ModeToggle } from "./ModeToogle";
 
 const navigation = [
   { name: "Home", href: "/", current: false },
-  { name: "Team", href: "/team", current: false },
+  { name: "Services", href: "/services", current: false },
   { name: "Projects", href: "/projects", current: false },
   { name: "Calendar", href: "/calendar", current: false },
 ];
@@ -25,7 +25,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <Disclosure as="nav" className="bg-transparent absolute top-0 left-0 w-full z-50">
+    <Disclosure as="nav" className="bg-transparent absolute top-0 left-0 w-full z-50 ">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -76,7 +76,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-      <DisclosurePanel className="sm:hidden">
+      <DisclosurePanel className="sm:hidden bg-black">
         <div className="space-y-1 px-2 pt-2 pb-3 text-center w-full d-flex items-center justify-center">
           {navigation.map((item) => {
             const isActive = pathname === item.href;
