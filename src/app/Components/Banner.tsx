@@ -15,7 +15,7 @@ const Banner: React.FC<BannerProps> = ({ pageName }) => {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h1
-          className="text-2xl lg:text-6xl font-bold text-blue-900 dark:text-blue-100 border-b-4 border-b-indigo-500"
+          className="text-2xl lg:text-6xl font-bold text-[#404040] dark:text-white border-b-4 border-b-[#c7d2fe]" 
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}

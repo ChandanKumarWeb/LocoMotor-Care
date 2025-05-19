@@ -4,7 +4,7 @@ import Banner from "../Components/Banner";
 function Services() {
   return (
     <div>
-      <Banner img="/Images/BannerImg.jpeg" pageName={"Services"} />
+      <Banner pageName={"Services"} />
     </div>
   );
 }

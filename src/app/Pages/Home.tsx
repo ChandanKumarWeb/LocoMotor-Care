@@ -76,14 +76,14 @@ function Home() {
       </motion.div>
 
       <motion.div
-        className="flex flex-col lg:flex-row justify-evenly items-center gap-6 my-8 px-4"
+        className="flex flex-col lg:flex-row justify-evenly items-center gap-6 my-8 rounded-lg mx-4 bg-[#D6D8D9] dark:bg-[#09090B]"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
         {/* Image Section */}
-        <div className="relative w-full sm:w-3/4 md:w-2/3 lg:w-1/2 aspect-[4/3]">
+        <div className="relative w-full sm:w-3/4 md:w-2/3 lg:w-1/2 aspect-[4/3] ">
           <Image
             src={introImg}
             alt="intro image"
@@ -93,7 +93,7 @@ function Home() {
         </div>
 
         {/* Text Section */}
-        <div className="flex flex-col gap-4 justify-center w-full lg:w-1/2">
+        <div className="flex flex-col gap-4 justify-center  bg-[#D6D8D9] w-full lg:w-1/2">
           <h1 className="font-semibold text-lg md:text-xl lg:text-2xl text-blue-900 dark:text-blue-100">
             Founded by Dr. Yash Pratihasta, Locomotor Care aims to bring
             cutting-edge physiotherapy services to your doorstep. Our dedicated
