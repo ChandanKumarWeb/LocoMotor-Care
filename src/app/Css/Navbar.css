@@ -1,9 +1,18 @@
-.logo{
-    max-width: 5rem;
-    max-height: 5rem;
-  }
-.companyName{
-  font-size: 1rem;
-  letter-spacing: 2px;
-  color: #fff;
+/* .logo {
+  object-fit: contain;
+}
+
+.companyName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+} */
+.logo {
+  object-fit: contain;
+}
+
+.companyName {
+  font-size: 1.20rem;
+  font-weight: 600;
+  color: white;
 }

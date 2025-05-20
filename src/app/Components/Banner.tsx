@@ -7,7 +7,7 @@ interface BannerProps {
 const Banner: React.FC<BannerProps> = ({ pageName }) => {
   return (
     <div>
-      <div className="relative h-18 bg-black w-full"> </div>
+      <div className="relative h-18 w-full"> </div>
       <motion.div
         className="w-full max-w-xs sm:max-w-sm md:max-w-md items-center lg:max-w-[35vw] flex flex-col justify-center lg:items-start text-white mx-4 gap-4"
         initial={{ opacity: 0, x: -50 }}

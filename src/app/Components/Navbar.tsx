@@ -15,90 +15,94 @@ import classNames from "classnames";
 import { ModeToggle } from "./ModeToogle";
 
 const navigation = [
-  { name: "Home", href: "/", current: false },
-  { name: "Services", href: "/services", current: false },
-  { name: "Projects", href: "/projects", current: false },
-  { name: "Calendar", href: "/calendar", current: false },
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "Projects", href: "/projects" },
+  { name: "Calendar", href: "/calendar" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <Disclosure as="nav" className="bg-transparent absolute top-0 left-0 w-full z-50 ">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="block size-6 group-data-open:hidden" />
-              <XMarkIcon aria-hidden="true" className="hidden size-6 group-data-open:block" />
-            </DisclosureButton>
-          </div>
+<Disclosure as="nav" className="fixed top-0 z-50 w-full bg-black/60 backdrop-blur-md shadow-md">
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="flex h-16 items-center justify-between">
 
-          {/* Logo */}
-          <div className="flex flex-1 items-center lg:justify-between sm:items-stretch sm:justify-start">
-            <div className="flex flex-1 justify-center mt-5 lg:mt-0 lg:justify-start items-center">
-              <Image alt="logo" src={logo} width={100} height={100} className="logo" />
-              <h3 className="companyName hidden lg:inline">LocoMotor Care</h3>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex h-full justify-center items-center space-x-4">
-                {navigation.map((item) => {
-                  const isActive = pathname === item.href;
-                  return (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={classNames(
-                        isActive
-                          ? "bg-gray-900 text-white"
-                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                        "rounded-md px-3 py-2 text-sm font-medium"
-                      )}
-                    >
-                      {item.name}
-                    </Link>
-                  );
-                })}
-                <ModeToggle/>
-              </div>
-            </div>
-          </div>
-
-          {/* Appointment Button */}
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <Appointmentbtn btnName={'Book Appointment'} />
-          </div>
-        </div>
+      {/* Mobile Hamburger Button */}
+      <div className="flex items-center sm:hidden">
+        <DisclosureButton className="inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white">
+          <Bars3Icon className="block h-6 w-6 ui-open:hidden" />
+          <XMarkIcon className="hidden h-6 w-6 ui-open:block" />
+        </DisclosureButton>
       </div>
 
-      {/* Mobile Navigation */}
-      <DisclosurePanel className="sm:hidden bg-black">
-        <div className="space-y-1 px-2 pt-2 pb-3 text-center w-full d-flex items-center justify-center">
-          {navigation.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={classNames(
-                  isActive
-                    ? "bg-gray-900 text-white w-fit "
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                  "block rounded-md px-3 py-2 text-base font-medium"
-                )}
-              >
-                {item.name}
-              </Link>
-            );
-          })}
-        <ModeToggle/>
-        </div>
-      </DisclosurePanel>
-    </Disclosure>
+      {/* Logo */}
+      <div className="flex items-center gap-2">
+        <Image src={logo} alt="Logo" width={40} height={40} className="logo" />
+        <h3 className="text-white text-lg font-semibold hidden sm:block">LocoMotor Care</h3>
+      </div>
+
+      {/* Nav Links - Show on sm and up */}
+      <div className="hidden sm:flex flex-1 justify-center items-center gap-6">
+        {navigation.map((item) => {
+          const isActive = pathname === item.href;
+          return (
+            <Link
+              key={item.name}
+              href={item.href}
+              className={classNames(
+                isActive
+                  ? "text-white border-b-2 border-white"
+                  : "text-gray-300 hover:text-white relative group",
+                "px-2 py-1 text-sm font-medium transition-all whitespace-nowrap"
+              )}
+            >
+              <span>{item.name}</span>
+              {!isActive && (
+                <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-white transition-all group-hover:w-full" />
+              )}
+            </Link>
+          );
+        })}
+        <ModeToggle />
+      </div>
+
+      {/* Appointment Button */}
+      <div className="hidden sm:flex items-center">
+        <Appointmentbtn btnName={"Book Appointment"} />
+      </div>
+    </div>
+  </div>
+
+  {/* Mobile Navigation Panel */}
+  <DisclosurePanel className="sm:hidden">
+    <div className="space-y-2 px-4 pb-4 pt-2 text-center text-white">
+      {navigation.map((item) => {
+        const isActive = pathname === item.href;
+        return (
+          <Link
+            key={item.name}
+            href={item.href}
+            className={classNames(
+              isActive
+                ? "bg-gray-800 text-white"
+                : "text-gray-300 hover:bg-gray-700 hover:text-white",
+              "block rounded-md px-3 py-2 text-base font-medium"
+            )}
+          >
+            {item.name}
+          </Link>
+        );
+      })}
+              <ModeToggle />
+      <div className="mt-4">
+        <Appointmentbtn btnName={"Book Appointment"} />
+      </div>
+    </div>
+  </DisclosurePanel>
+</Disclosure>
+
+
   );
 }
-
