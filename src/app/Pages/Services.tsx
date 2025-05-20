@@ -5,7 +5,7 @@ function Services() {
   return (
     <div>
       <Banner pageName={"Services"} />
-      <p>test</p>
+      <p>test Hello</p>
     </div>
   );
 }
