@@ -38,10 +38,12 @@ export default function Navbar() {
       </div>
 
       {/* Logo */}
-      <div className="flex items-center gap-2">
+      <Link href={"/"}>
+      <div className="flex items-center px-4 rounded-xl bg-white">
         <Image src={logo} alt="Logo" width={40} height={40} className="logo" />
-        <h3 className="text-white text-lg font-semibold hidden sm:block">LocoMotor Care</h3>
+        <h3 className="text-black text-lg font-semibold hidden sm:block">LocoMotor Care</h3>
       </div>
+      </Link>
 
       {/* Nav Links - Show on sm and up */}
       <div className="hidden sm:flex flex-1 justify-center items-center gap-6">
@@ -97,7 +99,7 @@ export default function Navbar() {
       })}
               <ModeToggle />
       <div className="mt-4">
-        <Appointmentbtn btnName={"Book Appointment"} />
+        <Appointmentbtn btnName={"Contact Us"} />
       </div>
     </div>
   </DisclosurePanel>
