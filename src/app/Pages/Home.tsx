@@ -56,7 +56,7 @@ function Home() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8 }}
                 >
-                  <Appointmentbtn btnName={"Book Appointment"} />
+                  <Appointmentbtn btnName={"Contact US"} />
                 </motion.div>
               </motion.div>
             </div>

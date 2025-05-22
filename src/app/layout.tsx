@@ -5,6 +5,7 @@ import './globals.css';
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import Footer from './Components/Footer';
+import BackToTopButton from './Components/BackToTopButton';
 config.autoAddCss = false
 
 
@@ -25,7 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Navbar />
         </ThemeProvider>
-        <Footer/>
+        <BackToTopButton />
+
+        <Footer />
         {/* <Footer /> */}
       </body>
     </html>
