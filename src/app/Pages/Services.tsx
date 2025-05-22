@@ -1,6 +1,5 @@
 import React from "react";
 import Banner from "../Components/Banner";
-import homebg from "../../../public/Images/homebg.jpeg";
 import ServiceBanner from "../../../public/Images/Banner Images/ServiceBanner.jpg";
 
 function Services() {
