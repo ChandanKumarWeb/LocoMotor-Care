@@ -8,6 +8,8 @@ function Footer() {
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
     <a className="link link-hover">Jobs</a>
+    <a href={"/services"} className="link link-hover">Services</a>
+
     <a className="link link-hover">Subs Plan</a>
   </nav>
   <nav>

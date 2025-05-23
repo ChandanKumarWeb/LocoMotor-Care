@@ -7,15 +7,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import LeftImgSection from "../Components/LeftImgSection";
 import RightImgSection from "../Components/RightImgSection";
+import CardSlider from "../Components/CardSlider";
 import homebg from "../../../public/Images/homebg.jpeg";
 import introImg from "../../../public/Images/introImg.jpeg";
 import BackToTopButton from "../Components/BackToTopButton";
 import CarouselPlugin from "@/app/Components/Carousel";
+import Link from "next/link";
 function Home() {
   return (
     <div>
       {/* HERO SECTION */}
-      <div className="relative w-full h-screen">
+      <div className="relative w-full h-64 sm:h-80 md:h-[50vh] lg:h-screen">
         <div className="relative w-full h-full">
           <Image
             src={homebg}
@@ -25,7 +27,7 @@ function Home() {
           />
           <div className="absolute inset-0 bg-black/60"></div>
 
-          <div className="HomeBannerAbsContent absolute top-80 left-0 lg:top-60 px-0 lg:px-10">
+          <div className="HomeBannerAbsContent absolute  top-20 left-0 lg:top-70 px-0 lg:px-10">
             <div className="HomeBannerText w-full flex  gap-5">
               <motion.div
                 className="w-full max-w-xs sm:max-w-sm md:max-w-md items-center lg:max-w-[35vw] flex flex-col justify-center lg:items-start text-white gap-4"
@@ -63,6 +65,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <CardSlider/>
 
       {/* INTRO SECTION */}
       <motion.div
@@ -165,7 +168,9 @@ function Home() {
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.8 }}
       >
-        <Appointmentbtn btnName={"More Services"} />
+        <Link href={"/services"}>
+          <Appointmentbtn btnName={"Explore Services"} />
+        </Link>
       </motion.div>
       <motion.div
         className="flex justify-center my-4"

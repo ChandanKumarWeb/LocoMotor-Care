@@ -23,8 +23,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem
           disableTransitionOnChange
         >
-          {children}
           <Navbar />
+          {children}
         </ThemeProvider>
         <BackToTopButton />
 
