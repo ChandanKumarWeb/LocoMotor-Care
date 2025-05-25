@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
-
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 export default function AppointmentForm() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [useCustomTime, setUseCustomTime] = useState(false);
   const [customTime, setCustomTime] = useState("");
+    const [phone, setPhone] = useState('');
+
   // Calculate today's date and max date (3 months ahead)
   const today = new Date();
   const minDate = new Date(today);
@@ -62,13 +65,17 @@ export default function AppointmentForm() {
       </div>
 
       {/* Contact & Email */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col">
           <label className="font-medium mb-1">Contact Number</label>
-          <input
-            type="tel"
-            className="w-full p-2 border border-gray-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
-            required
+          <PhoneInput
+            country={'auto'}
+            value={phone}
+            onChange={setPhone}
+            inputClass="w-full !p-2 !border !border-gray-300 dark:!border-neutral-700 !rounded !bg-white dark:!bg-neutral-800 !text-gray-900 dark:!text-gray-100"
+            containerClass="w-full"
+            inputStyle={{ width: '100%' }}
+            enableSearch
           />
         </div>
         <div className="flex flex-col">
