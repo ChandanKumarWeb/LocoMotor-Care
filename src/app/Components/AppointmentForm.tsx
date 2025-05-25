@@ -69,14 +69,20 @@ export default function AppointmentForm() {
         <div className="flex flex-col">
           <label className="font-medium mb-1">Contact Number</label>
           <PhoneInput
-            country={'auto'}
-            value={phone}
-            onChange={setPhone}
-            inputClass="w-full !p-2 !border !border-gray-300 dark:!border-neutral-700 !rounded !bg-white dark:!bg-neutral-800 !text-gray-900 dark:!text-gray-100"
-            containerClass="w-full"
-            inputStyle={{ width: '100%' }}
-            enableSearch
-          />
+  country={'auto'}
+  value={phone}
+  onChange={setPhone}
+  inputClass="!w-full !border !border-gray-300 dark:!border-neutral-700 !rounded !bg-white dark:!bg-neutral-800 !text-gray-900 dark:!text-gray-100"
+  containerClass="w-full"
+  inputStyle={{
+    width: '100%',
+    paddingLeft: 48, // or 50, adjust as needed
+    paddingRight: 12,
+    backgroundColor: 'inherit',
+    color: 'inherit',
+  }}
+  enableSearch
+/>
         </div>
         <div className="flex flex-col">
           <label className="font-medium mb-1">Email Address</label>
