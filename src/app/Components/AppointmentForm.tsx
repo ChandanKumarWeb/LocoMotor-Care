@@ -12,13 +12,68 @@ import "../Css/Appointform.css";
 import { motion } from "framer-motion";
 
 export default function AppointmentForm() {
+  // All hooks must be here, inside the function!
+  const [countries, setCountries] = useState<string[]>([]);
+  const [selectedCountry, setSelectedCountry] = useState("India");
+  const [states, setStates] = useState<string[]>([]);
+  const [cities, setCities] = useState<string[]>([]);
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [useCustomTime, setUseCustomTime] = useState(false);
   const [customTime, setCustomTime] = useState("");
   const [phone, setPhone] = useState<string | undefined>();
   const [defaultCountry, setDefaultCountry] = useState<CountryCode>('IN');
+
+
+  useEffect(() => {
+    fetch("https://countriesnow.space/api/v0.1/countries/positions")
+      .then((res) => res.json())
+      .then((data) => setCountries(data.data.map((c: any) => c.name)))
+      .catch(() => setCountries(["India"]));
+  }, []);
+  // Fetch states for selected country
+  useEffect(() => {
+    if (!selectedCountry) {
+      setStates([]);
+      setSelectedState("");
+      return;
+    }
+    fetch("https://countriesnow.space/api/v0.1/countries/states", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ country: selectedCountry }),
+    })
+      .then((res) => res.json())
+      .then((data) => setStates(data.data.states.map((s: any) => s.name)))
+      .catch(() => setStates([]));
+    setSelectedState("");
+    setCities([]);
+    setSelectedCity("");
+  }, [selectedCountry]);
+
+  // Fetch cities for selected state
+  useEffect(() => {
+    if (!selectedState) {
+      setCities([]);
+      setSelectedCity("");
+      return;
+    }
+    fetch("https://countriesnow.space/api/v0.1/countries/state/cities", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ country: selectedCountry, state: selectedState }),
+    })
+      .then((res) => res.json())
+      .then((data) => setCities(data.data))
+      .catch(() => setCities([]));
+    setSelectedCity("");
+  }, [selectedState, selectedCountry]);
+
+
   // Geo-IP detection
+
   useEffect(() => {
     const fetchCountry = async () => {
       try {
@@ -93,14 +148,14 @@ export default function AppointmentForm() {
         <div className="flex flex-col">
           <label className="font-medium mb-1">Contact Number</label>
           <PhoneInput
-  value={phone}
-  onChange={setPhone}
-  defaultCountry={defaultCountry}
-  international
-  inputProps={{
-    placeholder: "Enter phone number",
-  }}
-/>
+            value={phone}
+            onChange={setPhone}
+            defaultCountry={defaultCountry}
+            international
+            inputProps={{
+              placeholder: "Enter phone number",
+            }}
+          />
         </div>
         <div className="flex flex-col">
           <label className="font-medium mb-1">Email Address</label>
@@ -122,24 +177,49 @@ export default function AppointmentForm() {
           required
           className="w-full p-2 border border-gray-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex flex-col">
-            <label className="font-medium mb-1">City</label>
-            <input
-              type="text"
-              placeholder="Enter your city"
+            <label className="font-medium mb-1">Country</label>
+            <select
               required
+              value={selectedCountry}
+              onChange={e => setSelectedCountry(e.target.value)}
               className="w-full p-2 border border-gray-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
-            />
+            >
+              <option value="">Select country</option>
+              {countries.map(country => (
+                <option key={country} value={country}>{country}</option>
+              ))}
+            </select>
           </div>
           <div className="flex flex-col">
             <label className="font-medium mb-1">State</label>
-            <input
-              type="text"
-              placeholder="Enter your state"
+            <select
               required
+              value={selectedState}
+              onChange={e => setSelectedState(e.target.value)}
               className="w-full p-2 border border-gray-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
-            />
+            >
+              <option value="">Select state</option>
+              {states.map(state => (
+                <option key={state} value={state}>{state}</option>
+              ))}
+            </select>
+          </div>
+          <div className="flex flex-col">
+            <label className="font-medium mb-1">City</label>
+            <select
+              required
+              value={selectedCity}
+              onChange={e => setSelectedCity(e.target.value)}
+              disabled={!selectedState}
+              className="w-full p-2 border border-gray-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
+            >
+              <option value="">Select city</option>
+              {cities.map(city => (
+                <option key={city} value={city}>{city}</option>
+              ))}
+            </select>
           </div>
           <div className="flex flex-col">
             <label className="font-medium mb-1">Zip Code</label>
