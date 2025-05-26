@@ -26,11 +26,16 @@ export default function AppointmentForm() {
   const [phone, setPhone] = useState<string | undefined>();
   const [defaultCountry, setDefaultCountry] = useState<CountryCode>('IN');
 
+  type CountryApiCountry = { name: string };
+type CountriesApiResponse = { data: CountryApiCountry[] };
+
+type StateApiState = { name: string };
+type StatesApiResponse = { data: { states: StateApiState[] } };
 
   useEffect(() => {
     fetch("https://countriesnow.space/api/v0.1/countries/positions")
       .then((res) => res.json())
-      .then((data) => setCountries(data.data.map((c: any) => c.name)))
+      .then((data: CountriesApiResponse) => setCountries(data.data.map((c) => c.name)))
       .catch(() => setCountries(["India"]));
   }, []);
   // Fetch states for selected country
@@ -46,7 +51,7 @@ export default function AppointmentForm() {
       body: JSON.stringify({ country: selectedCountry }),
     })
       .then((res) => res.json())
-      .then((data) => setStates(data.data.states.map((s: any) => s.name)))
+.then((data: StatesApiResponse) => setStates(data.data.states.map((s) => s.name)))
       .catch(() => setStates([]));
     setSelectedState("");
     setCities([]);
