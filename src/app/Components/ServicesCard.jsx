@@ -16,12 +16,12 @@ function ServicesCard({ services }) {
             className="h-full"
           >
             <Card
-  isPressable
-  shadow="md"
-  onPress={() => console.log("item pressed")}
-  className="group transition-shadow duration-300 ease-in-out rounded-2xl flex flex-col h-full
+              isPressable
+              shadow="md"
+              onPress={() => console.log("item pressed")}
+              className="group transition-shadow duration-300 ease-in-out rounded-2xl flex flex-col h-full
     bg-white dark:bg-neutral-900 border border-gray-500 dark:border-neutral-800 hover:shadow-2xl"
->
+            >
               <CardBody className="overflow-hidden p-0">
                 <div className="overflow-hidden rounded-t-xl">
                   <Image
@@ -36,7 +36,9 @@ function ServicesCard({ services }) {
               </CardBody>
               <CardFooter className="w-full flex flex-col items-start gap-1 p-4 bg-white rounded-b-xl min-h-[110px]">
                 <b className="text-lg text-gray-900">{item.title}</b>
-                <p className="text-sm text-gray-700 line-clamp-4 min-h-[60px] text-start">{item.defination}</p>
+                <p className="text-sm text-gray-700 line-clamp-4 min-h-[60px] text-start">
+                  {item.defination}
+                </p>
               </CardFooter>
             </Card>
           </motion.div>

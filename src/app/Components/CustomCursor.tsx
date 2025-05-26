@@ -1,12 +1,23 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const CustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
+  const [showCursor, setShowCursor] = useState(false);
 
   useEffect(() => {
+    const checkScreen = () => {
+      setShowCursor(window.innerWidth >= 1024); // 1024px = Tailwind's 'lg'
+    };
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
+
+  useEffect(() => {
+    if (!showCursor) return;
     const moveCursor = (e: MouseEvent) => {
       if (cursorRef.current) {
         gsap.to(cursorRef.current, {
@@ -17,10 +28,11 @@ const CustomCursor = () => {
         });
       }
     };
-
     document.addEventListener('mousemove', moveCursor);
     return () => document.removeEventListener('mousemove', moveCursor);
-  }, []);
+  }, [showCursor]);
+
+  if (!showCursor) return null;
 
   return (
     <div

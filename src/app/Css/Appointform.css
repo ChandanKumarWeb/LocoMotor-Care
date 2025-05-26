@@ -1,0 +1,78 @@
+/* Improve MUI TimePicker visibility in dark mode */
+.dark .MuiInputBase-root,
+.dark .MuiInputBase-root input {
+  background-color: #18181b !important;
+  color: #f3f4f6 !important;
+}
+
+.dark .MuiOutlinedInput-notchedOutline {
+  border-color: #374151 !important;
+}
+
+.dark .MuiPaper-root {
+  background-color: #3b3b4e !important;
+  color: #f3f4f6 !important;
+}
+
+.dark .MuiClock-root {
+  background-color: #3b3b4e !important;
+}
+
+.dark .MuiPickersClock-pin {
+  background-color: #2563eb !important; /* blue-600 */
+}
+
+
+/* Modern highlight for selected hour/minute/AM/PM in dark mode */
+.dark .MuiClockNumber-root.Mui-selected {
+  background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%) !important; /* indigo-500 to cyan-400 */
+  color: #fff !important;
+  box-shadow: 0 2px 8px 0 #06b6d455;
+}
+
+.dark .MuiClockNumber-root:hover:not(.Mui-selected) {
+  background: #334155 !important; /* slate-800 */
+  color: #a5b4fc !important;      /* indigo-200 */
+}
+
+.dark .MuiPickersAmPmSelection-root .Mui-selected {
+  background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px 0 #06b6d455;
+}
+
+.dark .MuiPickersAmPmSelection-root button:hover:not(.Mui-selected) {
+  background: #334155 !important;
+  color: #a5b4fc !important;
+}
+.dark .MuiInputBase-input,
+.dark .MuiInputBase-root input {
+  color: #f3f4f6 !important; /* Tailwind's gray-100 */
+}
+/* Style react-phone-number-input input and placeholder for both themes */
+.react-phone-number-input__input {
+  width: 100% !important;
+  padding: 0.5rem !important;
+  border-radius: 0.375rem !important;
+  border: 1px solid #d1d5db !important; /* gray-300 */
+  background: #fff !important;
+  color: #111827 !important; /* gray-900 */
+  font-size: 1rem !important;
+}
+
+.react-phone-number-input__input::placeholder {
+  color: #9ca3af !important; /* gray-400 */
+  opacity: 1 !important;
+}
+
+.dark .react-phone-number-input__input {
+  background: #262626 !important;
+  color: #f3f4f6 !important; /* gray-100 */
+  border: 1px solid #6b7280 !important; /* gray-500 */
+}
+
+.dark .react-phone-number-input__input::placeholder {
+  color: #6b7280 !important; /* gray-500 */
+  opacity: 1 !important;
+}
+
