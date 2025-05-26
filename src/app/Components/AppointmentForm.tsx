@@ -104,15 +104,66 @@ type StatesApiResponse = { data: { states: StateApiState[] } };
   const formatDate = (date: Date) => date.toISOString().split("T")[0];
 
   const timeSlots = [
-    "10:00", "11:00", "12:00 PM", "1:00 PM",
+    "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM",
     "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const timeToShow = useCustomTime ? customTime : selectedTime;
-    alert(`Appointment booked for ${selectedDate} at ${timeToShow}`);
+
+  type AppointmentFormElements = HTMLFormElement & {
+    firstName: HTMLInputElement;
+    lastName: HTMLInputElement;
+    email: HTMLInputElement;
+    zip: HTMLInputElement;
+    street: HTMLInputElement;
+    message: HTMLTextAreaElement;
   };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const target = e.target as AppointmentFormElements;
+
+    // Prepare data
+    const formData = {
+      access_key: "d12ae869-f420-43f0-a23e-b52f9670df4e", // replace with your Web3Forms access key
+      subject: "New Appointment Request",
+      first_name: target.firstName.value,
+      last_name: target.lastName.value,
+      phone: phone,
+      email: target.email.value,
+      country: selectedCountry,
+      state: selectedState,
+      city: selectedCity,
+      zip: target.zip.value,
+      street: target.street.value,
+      date: selectedDate,
+      time: useCustomTime ? customTime : selectedTime,
+      message: target.message.value,
+    };
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+    if (result.success) {
+    const timeToShow = useCustomTime ? customTime : selectedTime;
+
+      alert("Appointment request sent successfully!");
+    alert(`Appointment booked for ${selectedDate} at ${timeToShow}`);
+
+      // Optionally reset form fields here
+    } else {
+      alert("Failed to send appointment request.");
+    }
+  } catch {
+    alert("Something went wrong. Please try again.");
+  }
+};
 
   return (
     <motion.form
@@ -132,6 +183,7 @@ type StatesApiResponse = { data: { states: StateApiState[] } };
           <label className="font-medium mb-1">First Name</label>
           <input
             type="text"
+            name="firstName"
             placeholder="Enter your first name"
             required
             className="w-full p-2 border border-gray-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
@@ -140,6 +192,7 @@ type StatesApiResponse = { data: { states: StateApiState[] } };
         <div className="flex flex-col">
           <label className="font-medium mb-1">Last Name</label>
           <input
+          name="lastName"
             type="text"
             placeholder="Enter your last name"
             required
@@ -165,6 +218,7 @@ type StatesApiResponse = { data: { states: StateApiState[] } };
         <div className="flex flex-col">
           <label className="font-medium mb-1">Email Address</label>
           <input
+          name="email"
             type="email"
             placeholder="Enter your email address"
             required
@@ -177,6 +231,7 @@ type StatesApiResponse = { data: { states: StateApiState[] } };
       <div className="space-y-2">
         <label className="font-medium">Street Address</label>
         <input
+        name="street"
           type="text"
           placeholder="Enter your street address"
           required
@@ -229,6 +284,7 @@ type StatesApiResponse = { data: { states: StateApiState[] } };
           <div className="flex flex-col">
             <label className="font-medium mb-1">Zip Code</label>
             <input
+            name="zip"
               type="text"
               placeholder="Enter your zip code"
               required
@@ -329,6 +385,7 @@ type StatesApiResponse = { data: { states: StateApiState[] } };
       <div className="flex flex-col">
         <label className="font-medium mb-1">What services are you interested in?</label>
         <textarea
+        name="message"
           rows={4}
           placeholder="Let us know the services you're looking for..."
           className="w-full p-2 border border-gray-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
