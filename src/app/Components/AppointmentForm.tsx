@@ -97,7 +97,6 @@ export default function AppointmentForm() {
   onChange={setPhone}
   defaultCountry={defaultCountry}
   international
-  className="!w-full"
   inputProps={{
     placeholder: "Enter phone number",
   }}
