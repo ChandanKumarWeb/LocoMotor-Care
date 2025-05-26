@@ -23,10 +23,10 @@ function ServicesCard({ services }) {
     bg-white dark:bg-neutral-900 border border-gray-500 dark:border-neutral-800 hover:shadow-2xl"
 >
               <CardBody className="overflow-hidden p-0">
-                <div className="overflow-hidden rounded-t-2xl">
+                <div className="overflow-hidden rounded-t-xl">
                   <Image
                     alt={item.title}
-                    className="w-full h-36 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105 rounded-t-2xl"
+                    className="w-full object-cover h-56 transition-transform duration-300 ease-in-out group-hover:scale-110"
                     radius="none"
                     shadow="none"
                     src={item.img}
@@ -34,13 +34,9 @@ function ServicesCard({ services }) {
                   />
                 </div>
               </CardBody>
-              <CardFooter className="flex flex-col items-start gap-1 p-4 bg-white dark:bg-neutral-900 rounded-b-2xl">
-                <b className="text-base md:text-lg text-gray-900 dark:text-gray-100 mb-1">
-                  {item.title}
-                </b>
-                <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
-                  {item.defination}
-                </p>
+              <CardFooter className="w-full flex flex-col items-start gap-1 p-4 bg-white rounded-b-xl min-h-[110px]">
+                <b className="text-lg text-gray-900">{item.title}</b>
+                <p className="text-sm text-gray-700 line-clamp-4 min-h-[60px] text-start">{item.defination}</p>
               </CardFooter>
             </Card>
           </motion.div>

@@ -1,5 +1,6 @@
 // app/layout.tsx
 import Navbar from './Components/Navbar';
+import CustomCursor from './Components/CustomCursor';
 import { ThemeProvider } from "@/app/Components/theme-provider"
 import './globals.css';
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem
           disableTransitionOnChange
         >
+          <CustomCursor/>
           <Navbar />
           {children}
         </ThemeProvider>
