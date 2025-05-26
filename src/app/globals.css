@@ -151,6 +151,13 @@ li{
   color: var(--introText);
 }
 /* Modern Scrollbar for Modal */
+/* Modern Scrollbar for Modal */
+.custom-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+/* Chrome, Edge, Safari */
 .custom-scroll::-webkit-scrollbar {
   width: 10px;
 }
@@ -164,8 +171,18 @@ li{
   border-radius: 9999px;
   border: 2px solid transparent;
   background-clip: content-box;
+  box-shadow: 0 2px 8px 0 rgba(30,41,59,0.08);
+  transition: background 0.2s;
 }
 
 .custom-scroll:hover::-webkit-scrollbar-thumb {
-  background: #94a3b8; /* Tailwind slate-400 */
+  background: #64748b; /* Tailwind slate-500 */
+}
+
+/* Dark mode support */
+.dark .custom-scroll::-webkit-scrollbar-thumb {
+  background: #334155; /* Tailwind slate-700 */
+}
+.dark .custom-scroll:hover::-webkit-scrollbar-thumb {
+  background: #64748b; /* Tailwind slate-500 */
 }
