@@ -13,7 +13,6 @@ import introImg from "../../../public/Images/introImg.jpeg";
 import BackToTopButton from "../Components/BackToTopButton";
 import CarouselPlugin from "@/app/Components/Carousel";
 import Link from "next/link";
-import AnimatedHeading from "../Components/CustomCursor";
 function Home() {
   return (
     <div>
@@ -66,7 +65,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <CardSlider/>
+      <CardSlider />
 
       {/* INTRO SECTION */}
       <motion.div
@@ -141,14 +140,12 @@ function Home() {
         transition={{ duration: 0.8 }}
       >
         <h1>Comprehensive Care Solutions</h1>
-        <AnimatedHeading title="Our Services">
-  <div>
-    <p className="text-gray-700">
-      We offer a wide range of physiotherapy services including ortho, neuro, sports rehab, and more.
-    </p>
-    {/* You can add more content or even a list here */}
-  </div>
-</AnimatedHeading>
+        <div>
+          <p className="text-gray-700">
+            We offer a wide range of physiotherapy services including ortho, neuro, sports rehab, and more.
+          </p>
+          {/* You can add more content or even a list here */}
+        </div>
       </motion.div>
       <LeftImgSection
         img="/Images/leftImgSectionImage/1stImg.jpeg"
