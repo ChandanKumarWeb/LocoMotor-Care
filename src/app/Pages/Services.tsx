@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Banner from "../Components/Banner";
 import ServiceBanner from "../../../public/Images/Banner Images/ServiceBanner.jpg";
 import ServiceCard from "@/app/Components/ServicesCard";
-import AppointmentForm from "../Components/AppointmentForm";
+import { CustomAccordion } from "@/app/Components/CustomAccordion";
 function Services() {
   return (
     <div>
@@ -110,18 +110,20 @@ function Services() {
           },
         ]}
       />
-          <motion.div
+      <motion.div
         className="heading text-center my-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.8 }}
-      >
-        <h1>Appointment Form</h1>
-      </motion.div>
-
-        <AppointmentForm/>
-    </div>
+        >
+          Frequently Asked Questions (FAQ)
+        </motion.div>
+        <div className="w-full max-w-2xl mx-auto px-2">
+          <CustomAccordion/>
+        </div>
+        
+      </div>
   );
 }
 
