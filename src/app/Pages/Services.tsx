@@ -119,7 +119,7 @@ function Services() {
         >
           Frequently Asked Questions (FAQ)
         </motion.div>
-        <div className="w-full max-w-2xl mx-auto px-2">
+        <div className="w-full max-w-7/10 mx-auto px-2">
           <CustomAccordion/>
         </div>
         
