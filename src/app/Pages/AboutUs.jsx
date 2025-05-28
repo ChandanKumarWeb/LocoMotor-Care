@@ -1,8 +1,7 @@
 "use client";
 
-
-import { useRef } from "react"
-import { motion, useInView, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import {
   Heart,
   Users,
@@ -18,17 +17,13 @@ import {
   UserPlus,
   Briefcase,
   Globe,
-} from "lucide-react"
+} from "lucide-react";
 import { CustomAccordion } from "../Components/CustomAccordion";
 
 // Animated Section Component
-function AnimatedSection({
-  children,
-  className = "",
-  delay = 0,
-}) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+function AnimatedSection({ children, className = "", delay = 0 }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <motion.div
@@ -40,13 +35,13 @@ function AnimatedSection({
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 // Hero Section with Parallax
 function HeroSection() {
-  const { scrollY } = useScroll()
-  const y = useTransform(scrollY, [0, 500], [0, 150])
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -84,7 +79,10 @@ function HeroSection() {
           className="flex flex-wrap justify-center gap-4 mt-8"
         >
           <motion.button
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+            }}
             whileTap={{ scale: 0.95 }}
             className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-blue-700 transition-colors"
           >
@@ -120,7 +118,7 @@ function HeroSection() {
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }
 
 // Our Essence Section
@@ -132,10 +130,15 @@ function EssenceSection() {
           <motion.div whileHover={{ scale: 1.1 }} className="inline-block mb-6">
             <Heart className="w-16 h-16 text-red-500 mx-auto" />
           </motion.div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">Our Essence</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
+            Our Essence
+          </h2>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.2} className="grid md:grid-cols-2 gap-12 items-center">
+        <AnimatedSection
+          delay={0.2}
+          className="grid md:grid-cols-2 gap-12 items-center"
+        >
           <div>
             <motion.p
               className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6"
@@ -143,9 +146,10 @@ function EssenceSection() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              At VedaMotion Care, we believe that healing begins with motion—gentle, guided, purposeful motion. Rooted
-              in the ancient wisdom of Veda and powered by modern physiotherapy techniques, we are more than just a
-              physical therapy space.
+              At VedaMotion Care, we believe that healing begins with
+              motion—gentle, guided, purposeful motion. Rooted in the ancient
+              wisdom of Veda and powered by modern physiotherapy techniques, we
+              are more than just a physical therapy space.
             </motion.p>
             <motion.p
               className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
@@ -153,9 +157,10 @@ function EssenceSection() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              We are your partners in recovery, renewal, and resilience. Our journey began in the serene hills of
-              Bomdila, West Kameng, Arunachal Pradesh with a simple idea: to create a place where people feel cared for,
-              not just treated.
+              We are your partners in recovery, renewal, and resilience. Our
+              journey began in the serene hills of Bomdila, West Kameng,
+              Arunachal Pradesh with a simple idea: to create a place where
+              people feel cared for, not just treated.
             </motion.p>
           </div>
           <motion.div
@@ -166,24 +171,27 @@ function EssenceSection() {
           >
             <div className="bg-gradient-to-br from-blue-100 to-green-100 dark:from-blue-900/20 dark:to-green-900/20 rounded-2xl p-8 shadow-xl">
               <MapPin className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Born in Bomdila</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                Born in Bomdila
+              </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                From the peaceful hills of Arunachal Pradesh to serving all of India
+                From the peaceful hills of Arunachal Pradesh to serving all of
+                India
               </p>
             </div>
           </motion.div>
         </AnimatedSection>
       </div>
     </section>
-  )
+  );
 }
 
 // Vision & Mission Section
 function VisionMissionSection() {
-  const visionRef = useRef(null)
-  const missionRef = useRef(null)
-  const visionInView = useInView(visionRef, { once: true })
-  const missionInView = useInView(missionRef, { once: true })
+  const visionRef = useRef(null);
+  const missionRef = useRef(null);
+  const visionInView = useInView(visionRef, { once: true });
+  const missionInView = useInView(missionRef, { once: true });
 
   return (
     <section className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
@@ -193,7 +201,9 @@ function VisionMissionSection() {
           <motion.div
             ref={visionRef}
             initial={{ opacity: 0, x: -50 }}
-            animate={visionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            animate={
+              visionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
+            }
             transition={{ duration: 0.8 }}
             className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl"
           >
@@ -204,11 +214,14 @@ function VisionMissionSection() {
             >
               <Target className="w-12 h-12 text-blue-600" />
             </motion.div>
-            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Our Vision</h3>
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              Our Vision
+            </h3>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              To build a nationwide healing network: effective, affordable, empathetic physiotherapy for every Indian.
-              We aim to be a trusted household name in India, trusted for its natural philosophy, advanced techniques,
-              and heart-led service.
+              To build a nationwide healing network: effective, affordable,
+              empathetic physiotherapy for every Indian. We aim to be a trusted
+              household name in India, trusted for its natural philosophy,
+              advanced techniques, and heart-led service.
             </p>
           </motion.div>
 
@@ -216,34 +229,61 @@ function VisionMissionSection() {
           <motion.div
             ref={missionRef}
             initial={{ opacity: 0, x: 50 }}
-            animate={missionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            animate={
+              missionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }
+            }
             transition={{ duration: 0.8 }}
             className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl"
           >
-            <motion.div whileHover={{ scale: 1.1 }} className="inline-block mb-6">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              className="inline-block mb-6"
+            >
               <Sparkles className="w-12 h-12 text-green-600" />
             </motion.div>
-            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Our Mission</h3>
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              Our Mission
+            </h3>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              Redefine physiotherapy: holistic, bridging rural-urban healthcare gaps. We empower people through
-              movement, in body, spirit, life.
+              Redefine physiotherapy: holistic, bridging rural-urban healthcare
+              gaps. We empower people through movement, in body, spirit, life.
             </p>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // Why Choose Us Section
 function WhyChooseUsSection() {
   const features = [
-    { icon: Heart, title: "Personalized Healing", description: "Tailored plans to fit your life" },
-    { icon: Users, title: "Holistic Approach", description: "Manual therapy, modern tools, mind-body practices" },
-    { icon: Star, title: "Expert & Empathetic", description: "Skilled team, caring hearts" },
-    { icon: CheckCircle, title: "Pain-Free Techniques", description: "Gentle, effective strategies" },
-    { icon: Sparkles, title: "Calming Environment", description: "Safe, seen, supported" },
-  ]
+    {
+      icon: Heart,
+      title: "Personalized Healing",
+      description: "Tailored plans to fit your life",
+    },
+    {
+      icon: Users,
+      title: "Holistic Approach",
+      description: "Manual therapy, modern tools, mind-body practices",
+    },
+    {
+      icon: Star,
+      title: "Expert & Empathetic",
+      description: "Skilled team, caring hearts",
+    },
+    {
+      icon: CheckCircle,
+      title: "Pain-Free Techniques",
+      description: "Gentle, effective strategies",
+    },
+    {
+      icon: Sparkles,
+      title: "Calming Environment",
+      description: "Safe, seen, supported",
+    },
+  ];
 
   return (
     <section className="py-20 px-4 bg-white dark:bg-gray-900">
@@ -268,15 +308,19 @@ function WhyChooseUsSection() {
                 >
                   <feature.icon className="w-12 h-12 text-blue-600" />
                 </motion.div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {feature.description}
+                </p>
               </motion.div>
             </AnimatedSection>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // Partner & Career Section
@@ -285,9 +329,12 @@ function PartnerCareerSection() {
     <section className="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Join Our Movement</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+            Join Our Movement
+          </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Whether you're a partner or looking for a career, we welcome you to be part of our healing mission
+            Whether you're a partner or looking for a career, we welcome you to
+            be part of our healing mission
           </p>
         </AnimatedSection>
 
@@ -299,26 +346,32 @@ function PartnerCareerSection() {
               className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20"
             >
               <Building className="w-12 h-12 text-white mb-6" />
-              <h3 className="text-2xl font-bold text-white mb-4">Partner With Us</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Partner With Us
+              </h3>
               <p className="text-blue-100 mb-6">
-                Build a Healing Network, Together. Clinics, therapists, centers—join forces! Amplify care across India.
+                Build a Healing Network, Together. Clinics, therapists,
+                centers—join forces! Amplify care across India.
               </p>
 
               <div className="space-y-3 mb-6">
-                {["Affiliate Clinics", "Home Visit Network", "Specialist Partners", "Tele-Physiotherapy"].map(
-                  (item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="flex items-center text-white"
-                    >
-                      <CheckCircle className="w-5 h-5 mr-3 text-green-300" />
-                      {item}
-                    </motion.div>
-                  ),
-                )}
+                {[
+                  "Affiliate Clinics",
+                  "Home Visit Network",
+                  "Specialist Partners",
+                  "Tele-Physiotherapy",
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center text-white"
+                  >
+                    <CheckCircle className="w-5 h-5 mr-3 text-green-300" />
+                    {item}
+                  </motion.div>
+                ))}
               </div>
 
               <motion.button
@@ -338,27 +391,32 @@ function PartnerCareerSection() {
               className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20"
             >
               <Briefcase className="w-12 h-12 text-white mb-6" />
-              <h3 className="text-2xl font-bold text-white mb-4">Careers at VedaMotion Care</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Careers at VedaMotion Care
+              </h3>
               <p className="text-blue-100 mb-6">
-                Passion + Platform = Mission. Skilled hands, kind hearts, purposeful movement, welcome to VedaMotion
-                Care!
+                Passion + Platform = Mission. Skilled hands, kind hearts,
+                purposeful movement, welcome to VedaMotion Care!
               </p>
 
               <div className="space-y-3 mb-6">
-                {["Physiotherapists", "Clinical Assistants", "Home Care Experts", "Rehab Tech Innovators"].map(
-                  (item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="flex items-center text-white"
-                    >
-                      <UserPlus className="w-5 h-5 mr-3 text-green-300" />
-                      {item}
-                    </motion.div>
-                  ),
-                )}
+                {[
+                  "Physiotherapists",
+                  "Clinical Assistants",
+                  "Home Care Experts",
+                  "Rehab Tech Innovators",
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center text-white"
+                  >
+                    <UserPlus className="w-5 h-5 mr-3 text-green-300" />
+                    {item}
+                  </motion.div>
+                ))}
               </div>
 
               <motion.button
@@ -373,7 +431,7 @@ function PartnerCareerSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // Contact Section
@@ -385,9 +443,12 @@ function ContactSection() {
           <motion.div whileHover={{ scale: 1.1 }} className="inline-block mb-8">
             <Globe className="w-16 h-16 text-blue-400 mx-auto" />
           </motion.div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">Let's Make Every Move Matter</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8">
+            Let's Make Every Move Matter
+          </h2>
           <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-            Pan-India movement: care, community, clinical excellence. From Bomdila to Bengaluru, join our journey!
+            Pan-India movement: care, community, clinical excellence. From
+            Bomdila to Bengaluru, join our journey!
           </p>
         </AnimatedSection>
 
@@ -418,7 +479,7 @@ function ContactSection() {
         </AnimatedSection>
       </div>
     </section>
-  )
+  );
 }
 
 // Main About Us Component
@@ -431,7 +492,16 @@ export default function AboutUs() {
       <WhyChooseUsSection />
       <PartnerCareerSection />
       <ContactSection />
-      <CustomAccordion/>
+      <motion.div
+        className="heading text-center my-4"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8 }}
+      >
+        Frequently Asked Questions (FAQ)
+      </motion.div>
+      <CustomAccordion />
     </div>
-  )
+  );
 }
