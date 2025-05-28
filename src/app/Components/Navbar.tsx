@@ -20,8 +20,12 @@ import AppointmentForm from "@/app/Components/AppointmentForm";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
-  { name: "About Us", href: "/services" },// "about" add this to open about us
-  { name: "Contact Us", href: "/services" },// "contact" add this to open about us
+  { name: "About Us", href: "/about" },
+   { name: "Contact Us", href: "/contact" },
+   // "contact" add this to open about us
+   // "about" add this to open about us
+  // { name: "About Us", href: "/services" },
+  // { name: "Contact Us", href: "/services" },
   { name: "Appointment", modal: true },
 
 ];

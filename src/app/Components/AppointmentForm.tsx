@@ -193,7 +193,7 @@ export default function AppointmentForm() {
             }))
           }
         }
-      } catch (error) {
+      } catch {
         console.log("Could not detect user location, using default")
       }
     }

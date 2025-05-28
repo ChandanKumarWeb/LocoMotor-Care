@@ -189,7 +189,7 @@ export function CustomAccordion() {
   ]
 
   return (
-    <div className="w-full max-w-6/10  mx-auto space-y-4 p-4">
+    <div className="w-full max-w-9/10 lg:max-w-6/10  mx-auto space-y-4 p-4">
       {items.map((item, index) => (
         <AccordionItem key={item.value} item={item} index={index} />
       ))}
