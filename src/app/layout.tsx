@@ -11,7 +11,7 @@ config.autoAddCss = false
 
 
 export const metadata = {
-  title: 'Locomotor Care',
+  title: 'VedaMotion Care',
   description: 'Physiotherapy Website',
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {

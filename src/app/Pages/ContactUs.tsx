@@ -76,7 +76,7 @@ function HeroSection() {
             <MessageCircle className="w-20 h-20 text-blue-600 mx-auto" />
           </motion.div>
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-purple-600 bg-clip-text text-transparent mb-6">
-            Contact LocoMotor Care
+            Contact VedaMotion Care
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -94,7 +94,7 @@ function HeroSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed"
         >
-          At LocoMotor Care, we believe healing begins with connection. Whether you&#39;re looking to book a home visit,
+          At VedaMotion Care, we believe healing begins with connection. Whether you&#39;re looking to book a home visit,
           schedule a tele-rehab session, or simply want to ask a question, we&#39;re just a call or message away.
         </motion.p>
       </div>
@@ -497,7 +497,7 @@ function ContactFormSection() {
                     className="mt-1 mr-3 text-blue-600"
                   />
                   <label className="text-sm text-gray-700 dark:text-gray-300">
-                    I agree to LocoMotor Care&#39;s privacy policy. *
+                    I agree to VedaMotion Care&#39;s privacy policy. *
                   </label>
                 </motion.div>
 

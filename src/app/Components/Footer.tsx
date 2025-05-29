@@ -53,7 +53,7 @@ function Footer() {
     <p>Developed and Designed by <a className='hover:border-b-2 hover:border-b-blue-600 text-blue-300' href='https://its-chandan-portfolio.netlify.app/'>Chandan Kumar</a></p>
   </aside>
   <aside className='text-center'>
-    <p>Copyright © {new Date().getFullYear()} - All right reserved by LocoMotor Care Pvt Ltd</p>
+    <p>Copyright © {new Date().getFullYear()} - All right reserved by VedaMotion Care Pvt Ltd</p>
   </aside>
 
 </footer>

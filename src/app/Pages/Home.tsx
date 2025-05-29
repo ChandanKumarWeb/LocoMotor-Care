@@ -49,7 +49,7 @@ function Home() {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  At Locomotor Care, we empower you to regain your mobility and
+                  At VedaMotion Care, we empower you to regain your mobility and
                   strength. Experience personalized physiotherapy tailored to
                   your journey towards pain-free living.
                 </motion.p>
@@ -98,7 +98,7 @@ function Home() {
         {/* Text Section */}
         <div className="flex flex-col gap-4 justify-center   w-full lg:w-1/2">
           <h1 className="font-semibold text-lg md:text-xl lg:text-2xl text-blue-900 dark:text-blue-100">
-            Founded by Dr. Yash Pratihasta, Locomotor Care aims to bring
+            Founded by Dr. Yash Pratihasta, VedaMotion Care aims to bring
             cutting-edge physiotherapy services to your doorstep. Our dedicated
             approach focuses on individual patient needs.
           </h1>

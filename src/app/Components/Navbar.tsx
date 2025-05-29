@@ -53,7 +53,7 @@ export default function Navbar() {
           <Link href={"/"}>
             <div className="flex items-center px-4 rounded-xl bg-white">
               <Image src={logo} alt="Logo" width={40} height={40} className="logo" />
-              <h3 className="text-black text-lg font-semibold hidden sm:block">LocoMotor Care</h3>
+              <h3 className="text-black text-lg font-semibold hidden sm:block">VedaMotion Care</h3>
             </div>
           </Link>
 

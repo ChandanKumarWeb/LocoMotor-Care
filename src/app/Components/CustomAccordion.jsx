@@ -126,7 +126,7 @@ export function CustomAccordion() {
   const items = [
     {
       value: "item-1",
-      question: "What services does LocoMotor Care offer?",
+      question: "What services does VedaMotion Care offer?",
       answer:
         "We provide in-clinic and home-based physiotherapy, tele-rehabilitation, exercise therapy, electrotherapy, manual therapy, and digital education materials.",
     },
@@ -183,7 +183,7 @@ export function CustomAccordion() {
     },
     {
       value: "item-11",
-      question: "How do I contact LocoMotor Care for further questions or support?",
+      question: "How do I contact VedaMotion Care for further questions or support?",
       answer: "You can reach us at vedamotioncare@gmail.com. We're here to help!",
     },
   ]
