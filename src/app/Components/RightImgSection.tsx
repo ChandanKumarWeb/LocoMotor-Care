@@ -3,14 +3,12 @@ import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 interface RightImgSectionProps {
   img: StaticImageData | string;
-  head: string;
   heading: string;
   pera: string;
 }
 
 const RightImgSection: React.FC<RightImgSectionProps> = ({
   img,
-  head,
   heading,
   pera,
 }) => {
@@ -24,10 +22,8 @@ const RightImgSection: React.FC<RightImgSectionProps> = ({
         transition={{ duration: 0.8 }}
       >
         {/* Text Section */}
-        <div className="flex flex-col gap-4 justify-center w-full lg:w-1/2 order-2 lg:order-1">
-          <h1 className="font-semibold text-lg md:text-xl lg:text-2xl">
-            {head}
-          </h1>
+        <div className="flex flex-col gap-4 justify-center w-full px-2 lg:px-8 lg:w-1/2 order-2 lg:order-1">
+        
           <p className="heading text-blue-900 dark:text-blue-100 md:text-base ">{heading}</p>
           <p className="text-gray-700 dark:text-gray-300">{pera}</p>
         </div>

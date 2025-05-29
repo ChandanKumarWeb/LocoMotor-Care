@@ -60,7 +60,7 @@ function HeroSection() {
           className="mb-8"
         >
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-purple-600 bg-clip-text text-transparent mb-6">
-            VedaMotion Care
+            LocoMotor Care
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -146,7 +146,7 @@ function EssenceSection() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              At VedaMotion Care, we believe that healing begins with
+              At LocoMotor Care, we believe that healing begins with
               motion—gentle, guided, purposeful motion. Rooted in the ancient
               wisdom of Veda and powered by modern physiotherapy techniques, we
               are more than just a physical therapy space.
@@ -290,7 +290,7 @@ function WhyChooseUsSection() {
       <div className="max-w-6xl mx-auto">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
-            Why Choose VedaMotion Care?
+            Why Choose LocoMotor Care?
           </h2>
         </AnimatedSection>
 
@@ -392,11 +392,11 @@ function PartnerCareerSection() {
             >
               <Briefcase className="w-12 h-12 text-white mb-6" />
               <h3 className="text-2xl font-bold text-white mb-4">
-                Careers at VedaMotion Care
+                Careers at LocoMotor Care
               </h3>
               <p className="text-blue-100 mb-6">
                 Passion + Platform = Mission. Skilled hands, kind hearts,
-                purposeful movement, welcome to VedaMotion Care!
+                purposeful movement, welcome to LocoMotor Care!
               </p>
 
               <div className="space-y-3 mb-6">

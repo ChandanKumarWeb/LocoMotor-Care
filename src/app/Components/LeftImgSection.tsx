@@ -3,12 +3,11 @@ import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 interface LeftImgSectionProps {
     img: StaticImageData | string;
-    head: string;
     heading: string;
     pera: string;
   }
   
-  const LeftImgSection: React.FC<LeftImgSectionProps> = ({ img, head, heading, pera }) => {
+  const LeftImgSection: React.FC<LeftImgSectionProps> = ({ img, heading, pera }) => {
   return (
     <div>
       <motion.div
@@ -29,10 +28,8 @@ interface LeftImgSectionProps {
         </div>
 
         {/* Text Section */}
-        <div className="flex flex-col gap-4 justify-center w-full lg:w-1/2">
-          <h1 className="font-semibold text-lg md:text-xl lg:text-2xl">
-            {head}
-          </h1>
+        <div className="flex flex-col gap-4 justify-center w-full px-2 lg:px-8 lg:w-1/2">
+        
           <p className="heading text-blue-900 dark:text-blue-100 md:text-base ">
             {heading}
           </p>

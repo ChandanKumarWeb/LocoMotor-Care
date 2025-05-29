@@ -141,7 +141,8 @@ function Home() {
       >
         <h1>Comprehensive Care Solutions</h1>
         <div>
-          <p className="text-gray-700">
+          <p className="text-sm md:text-base lg:text-lg text-gray-700">
+
             We offer a wide range of physiotherapy services including ortho, neuro, sports rehab, and more.
           </p>
           {/* You can add more content or even a list here */}
@@ -149,21 +150,18 @@ function Home() {
       </motion.div>
       <LeftImgSection
         img="/Images/leftImgSectionImage/1stImg.jpeg"
-        head="01."
         heading="Orthopedic"
         pera="Our orthopedic physiotherapy services target musculoskeletal issues to alleviate pain and enhance function. We work with you to develop a personalized recovery plan."
       />
 
       <RightImgSection
         img="/Images/RightImgSectionImage/2ndImg.jpeg"
-        head="02."
         heading="Sports Rehab"
         pera="Our sports injury rehab services are designed for athletes of all levels, focusing on rehabilitation and on-field management. We ensure you get back in the game safely and effectively."
       />
 
       <LeftImgSection
         img="/Images/leftImgSectionImage/3rdImg.jpeg"
-        head="03."
         heading="Neuro Rehab"
         pera="Our neuro rehabilitation services aim to improve quality of life for individuals with neurological conditions. We focus on recovery through targeted interventions and compassionate support."
       />

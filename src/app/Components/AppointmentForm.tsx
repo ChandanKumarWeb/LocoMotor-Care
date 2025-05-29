@@ -243,12 +243,9 @@ export default function AppointmentForm() {
       newErrors.phone = "Please enter a valid phone number"
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required"
-      missingFields.push("Email")
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = "Please enter a valid email address"
-    }
+   if (formData.email.trim() && !validateEmail(formData.email)) {
+  newErrors.email = "Please enter a valid email address"
+}
 
     if (!formData.street.trim()) {
       newErrors.street = "Street address is required"
@@ -376,14 +373,6 @@ export default function AppointmentForm() {
     >
       <h2 className="text-2xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">Book an Appointment</h2>
 
-      {/* General Error Message */}
-      {errors.general && (
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 flex items-start gap-3">
-          <AlertCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
-          <div className="text-red-700 dark:text-red-300 text-sm">{errors.general}</div>
-        </div>
-      )}
-
       {/* Full Name */}
       <div className="flex flex-col">
         <label className="font-medium mb-1">Full Name *</label>
@@ -431,7 +420,7 @@ export default function AppointmentForm() {
           {errors.phone && <span className="text-red-500 text-sm mt-1">{errors.phone}</span>}
         </div>
         <div className="flex flex-col">
-          <label className="font-medium mb-1">Email Address *</label>
+          <label className="font-medium mb-1">Email Address </label>
           <input
             type="email"
             value={formData.email}
@@ -632,19 +621,52 @@ export default function AppointmentForm() {
           className="w-full p-2 border border-gray-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
         />
       </div>
-
+{/* General Error Message */}
+      {errors.general && (
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 flex items-start gap-3">
+          <AlertCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+          <div className="text-red-700 dark:text-red-300 text-sm">{errors.general}</div>
+        </div>
+      )}
       {/* Submit */}
-      <div className="flex justify-center">
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className={`px-6 py-2 rounded transition ${
-            isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
-          } text-white`}
-        >
-          {isSubmitting ? "Submitting..." : "Submit Appointment"}
-        </button>
-      </div>
+<div className="flex justify-center">
+  <motion.button
+    type="submit"
+    disabled={isSubmitting}
+    whileTap={{ scale: 0.96 }}
+    className={`relative flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all duration-200
+      ${
+        isSubmitting
+          ? "bg-gradient-to-r from-gray-400 to-gray-500 cursor-not-allowed shadow-none"
+          : "bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 shadow-lg hover:shadow-xl"
+      }
+      text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2`}
+  >
+    {isSubmitting && (
+      <svg
+        className="animate-spin h-5 w-5 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        ></circle>
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+        ></path>
+      </svg>
+    )}
+    {isSubmitting ? "Submitting..." : "Submit Appointment"}
+  </motion.button>
+</div>
     </motion.form>
   )
 }

@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Modal from "@/app/Components/ModalProps";
 
 import { useState, useRef } from "react"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
@@ -18,6 +19,7 @@ import {
   Globe,
   MessageSquare,
 } from "lucide-react"
+import AppointmentForm from "@/app/Components/AppointmentForm";
 
 // Animated Section Component
 function AnimatedSection({
@@ -74,7 +76,7 @@ function HeroSection() {
             <MessageCircle className="w-20 h-20 text-blue-600 mx-auto" />
           </motion.div>
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-purple-600 bg-clip-text text-transparent mb-6">
-            Contact VedaMotion Care
+            Contact LocoMotor Care
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -92,7 +94,7 @@ function HeroSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed"
         >
-          At VedaMotion Care, we believe healing begins with connection. Whether you&#39;re looking to book a home visit,
+          At LocoMotor Care, we believe healing begins with connection. Whether you&#39;re looking to book a home visit,
           schedule a tele-rehab session, or simply want to ask a question, we&#39;re just a call or message away.
         </motion.p>
       </div>
@@ -209,9 +211,10 @@ function ContactMethodsSection() {
       content: "Schedule Your Session",
       subtitle: "Prefer convenience? Fill out our online form to schedule your tele-rehab or home visit session.",
       color: "purple",
-      action: "#contact-form",
+      modal: true,
     },
   ]
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
@@ -224,45 +227,87 @@ function ContactMethodsSection() {
         <div className="grid md:grid-cols-3 gap-8">
           {contactMethods.map((method, index) => (
             <AnimatedSection key={index} delay={index * 0.2}>
-              <motion.a
-                href={method.action}
-                whileHover={{ y: -10, scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="block bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow cursor-pointer"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.2, rotate: 360 }}
-                  transition={{ duration: 0.5 }}
-                  className="inline-block mb-6"
+              {method.modal ? (
+                <motion.button
+                  type="button"
+                  onClick={() => setModalOpen(true)}
+                  whileHover={{ y: -10, scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow cursor-pointer text-left"
                 >
-                  <method.icon
-                    className={`w-12 h-12 ${
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                    className="inline-block mb-6"
+                  >
+                    <method.icon
+                      className={`w-12 h-12 ${
+                        method.color === "green"
+                          ? "text-green-600"
+                          : method.color === "blue"
+                            ? "text-blue-600"
+                            : "text-purple-600"
+                      }`}
+                    />
+                  </motion.div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{method.title}</h3>
+                  <p
+                    className={`text-xl font-semibold mb-4 ${
                       method.color === "green"
                         ? "text-green-600"
                         : method.color === "blue"
                           ? "text-blue-600"
                           : "text-purple-600"
                     }`}
-                  />
-                </motion.div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{method.title}</h3>
-                <p
-                  className={`text-xl font-semibold mb-4 ${
-                    method.color === "green"
-                      ? "text-green-600"
-                      : method.color === "blue"
-                        ? "text-blue-600"
-                        : "text-purple-600"
-                  }`}
+                  >
+                    {method.content}
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{method.subtitle}</p>
+                </motion.button>
+              ) : (
+                <motion.a
+                  href={method.action}
+                  whileHover={{ y: -10, scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="block bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow cursor-pointer"
                 >
-                  {method.content}
-                </p>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{method.subtitle}</p>
-              </motion.a>
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                    className="inline-block mb-6"
+                  >
+                    <method.icon
+                      className={`w-12 h-12 ${
+                        method.color === "green"
+                          ? "text-green-600"
+                          : method.color === "blue"
+                            ? "text-blue-600"
+                            : "text-purple-600"
+                      }`}
+                    />
+                  </motion.div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{method.title}</h3>
+                  <p
+                    className={`text-xl font-semibold mb-4 ${
+                      method.color === "green"
+                        ? "text-green-600"
+                        : method.color === "blue"
+                          ? "text-blue-600"
+                          : "text-purple-600"
+                    }`}
+                  >
+                    {method.content}
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{method.subtitle}</p>
+                </motion.a>
+              )}
             </AnimatedSection>
           ))}
         </div>
       </div>
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
+              <AppointmentForm />
+            </Modal>
     </section>
   )
 }
@@ -452,7 +497,7 @@ function ContactFormSection() {
                     className="mt-1 mr-3 text-blue-600"
                   />
                   <label className="text-sm text-gray-700 dark:text-gray-300">
-                    I agree to VedaMotion Care&#39;s privacy policy. *
+                    I agree to LocoMotor Care&#39;s privacy policy. *
                   </label>
                 </motion.div>
 
@@ -543,6 +588,7 @@ function JoinNetworkSection() {
 
 // Main Contact Us Component
 export default function ContactUs() {
+
   return (
     <div className="min-h-screen">
       <HeroSection />
@@ -550,6 +596,7 @@ export default function ContactUs() {
       <ContactMethodsSection />
       <ContactFormSection />
       <JoinNetworkSection />
+      
     </div>
   )
 }

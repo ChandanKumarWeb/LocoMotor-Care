@@ -116,14 +116,12 @@ function Services() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.8 }}
-        >
-          Frequently Asked Questions (FAQ)
-        </motion.div>
-        <div className="w-full max-w-7/10 mx-auto px-2">
-          <CustomAccordion/>
-        </div>
-        
-      </div>
+      >
+        Frequently Asked Questions (FAQ)
+      </motion.div>
+      <CustomAccordion />
+
+    </div>
   );
 }
 
