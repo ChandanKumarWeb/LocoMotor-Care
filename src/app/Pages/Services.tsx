@@ -56,7 +56,7 @@ function Services() {
             defination: "A chiropractic adjustment, also called spinal manipulation, is a procedure done by a chiropractor using the hands or small instruments to apply controlled force to a spinal joint. The goal is to improve spinal motion and the physical function of the entire body."
           },
           {
-            title: "estibular Rehabilitation (vr)",
+            title: "Vestibular Rehabilitation (vr)",
             img: "/Images/leftImgSectionImage/3rdImg.jpeg",
             defination: "A chiropractic adjustment, also called spinal manipulation, is a procedure done by a chiropractor using the hands or small instruments to apply controlled force to a spinal joint. The goal is to improve spinal motion and the physical function of the entire body."
           },

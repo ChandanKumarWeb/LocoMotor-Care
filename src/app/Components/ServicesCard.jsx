@@ -35,7 +35,7 @@ function ServicesCard({ services }) {
                 </div>
               </CardBody>
               <CardFooter className="w-full flex flex-col items-start gap-1 p-4 bg-white rounded-b-xl min-h-[110px]">
-                <b className="text-lg text-gray-900">{item.title}</b>
+                <b className="text-lg text-gray-900 line-clamp-1">{item.title}</b>
                 <p className="text-sm text-gray-700 line-clamp-4 min-h-[60px] text-start">
                   {item.defination}
                 </p>
