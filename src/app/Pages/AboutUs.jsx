@@ -49,8 +49,7 @@ function HeroSection() {
       <motion.div style={{ y }} className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
-      </motion.div>
+<div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-60 h-60 sm:w-72 sm:h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>      </motion.div>
 
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
         <motion.div
