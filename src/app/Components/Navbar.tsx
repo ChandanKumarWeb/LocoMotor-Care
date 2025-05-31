@@ -139,9 +139,6 @@ export default function Navbar() {
             );
           })}
           <ModeToggle />
-          <div className="mt-4">
-            <Appointmentbtn btnName={"Contact Us"} />
-          </div>
         </div>
       </DisclosurePanel>
       <Modal open={modalOpen} onClose={() => setModalOpen(false)}>

@@ -1,63 +1,276 @@
-import React from 'react'
+"use client"
+import { motion } from "framer-motion"
+import { Heart, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube, ExternalLink, ArrowUp } from "lucide-react"
 
 function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  const footerLinks = {
+    company: [
+      { name: "About Us", href: "/about" },
+      { name: "Our Services", href: "/services" },
+      { name: "Contact", href: "/contact" },
+      { name: "Careers", href: "/careers" },
+    ],
+    services: [
+      { name: "Physiotherapy", href: "/services/physiotherapy" },
+      { name: "Home Visits", href: "/services/home-visits" },
+      { name: "Telerehabilitation", href: "/services/telerehab" },
+      { name: "Subscription Plans", href: "/services/plans" },
+    ],
+    support: [
+      { name: "Help Center", href: "/help" },
+      { name: "Privacy Policy", href: "/privacy" },
+      { name: "Terms of Service", href: "/terms" },
+      { name: "FAQ", href: "/faq" },
+    ],
+  }
+
+  const socialLinks = [
+    {
+      name: "Facebook",
+      icon: Facebook,
+      href: "#",
+      color: "hover:text-blue-600",
+    },
+    {
+      name: "Twitter",
+      icon: Twitter,
+      href: "#",
+      color: "hover:text-sky-500",
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      href: "#",
+      color: "hover:text-pink-600",
+    },
+    {
+      name: "YouTube",
+      icon: Youtube,
+      href: "#",
+      color: "hover:text-red-600",
+    },
+  ]
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      text: "+91 8875115254",
+      href: "tel:+918875115254",
+    },
+    {
+      icon: Mail,
+      text: "vedamotioncare@gmail.com",
+      href: "mailto:vedamotioncare@gmail.com",
+    },
+    {
+      icon: MapPin,
+      text: "Bomdila, West Kameng, Arunachal Pradesh",
+      href: "#",
+    },
+  ]
+
   return (
-    <div>
-      <footer className="h-[30vh] lg:h-[40vh] gap-4 footer flex flex-col justify-center items-center footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
-  <nav className="grid grid-flow-col gap-4">
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
-    <a href={"/services"} className="link link-hover">Services</a>
+    <footer className="relative bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+      
 
-    <a className="link link-hover">Subs Plan</a>
-  </nav>
-  <nav>
-    <div className="flex justify-center items-center gap-4">
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-        </svg>
-      </a>
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-        </svg>
-      </a>
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-        </svg>
-      </a>
-    </div>
-  </nav>
-      <aside>
-    <p>Developed and Designed by <a className='hover:border-b-2 hover:border-b-blue-600 text-blue-300' href='https://its-chandan-portfolio.netlify.app/'>Chandan Kumar</a></p>
-  </aside>
-  <aside className='text-center'>
-    <p>Copyright © {new Date().getFullYear()} - All right reserved by VedaMotion Care Pvt Ltd</p>
-  </aside>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Main footer content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {/* Company Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-1 md:col-span-2"
+          >
+            <div className="flex items-center mb-6">
+              <motion.div whileHover={{ scale: 1.1, rotate: 360 }} transition={{ duration: 0.5 }}>
+                <Heart className="w-8 h-8 text-blue-600 mr-3" />
+              </motion.div>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+                VedaMotion Care
+              </h3>
+            </div>
+            <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+              Where Every Move Heals. Providing compassionate physiotherapy care from the hills of Arunachal Pradesh to
+              all of India.
+            </p>
 
-</footer>
-    </div>
+            {/* Contact Info */}
+            <div className="space-y-3">
+              {contactInfo.map((item, index) => (
+                <motion.a
+                  key={index}
+                  href={item.href}
+                  whileHover={{ x: 5 }}
+                  className="flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
+                >
+                  <item.icon className="w-4 h-4 mr-3 group-hover:scale-110 transition-transform" />
+                  <span className="text-sm">{item.text}</span>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Links Section - Mobile: 3 columns, Desktop: original layout */}
+          <div className="md:col-span-2 lg:col-span-3 grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-12">
+            {/* Company Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <h4 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-4 md:mb-6">Company</h4>
+              <ul className="space-y-2 md:space-y-3">
+                {footerLinks.company.map((link, index) => (
+                  <li key={index}>
+                    <motion.a
+                      href={link.href}
+                      whileHover={{ x: 5 }}
+                      className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xs md:text-sm flex items-center group"
+                    >
+                      <span className="truncate">{link.name}</span>
+                      <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity hidden md:block" />
+                    </motion.a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Services Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h4 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-4 md:mb-6">Services</h4>
+              <ul className="space-y-2 md:space-y-3">
+                {footerLinks.services.map((link, index) => (
+                  <li key={index}>
+                    <motion.a
+                      href={link.href}
+                      whileHover={{ x: 5 }}
+                      className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xs md:text-sm flex items-center group"
+                    >
+                      <span className="truncate">{link.name}</span>
+                      <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity hidden md:block" />
+                    </motion.a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Support Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <h4 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white mb-4 md:mb-6">Support</h4>
+              <ul className="space-y-2 md:space-y-3">
+                {footerLinks.support.map((link, index) => (
+                  <li key={index}>
+                    <motion.a
+                      href={link.href}
+                      whileHover={{ x: 5 }}
+                      className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-xs md:text-sm flex items-center group"
+                    >
+                      <span className="truncate">{link.name}</span>
+                      <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity hidden md:block" />
+                    </motion.a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Social Media & Newsletter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+            {/* Social Links */}
+            <div className="flex items-center space-x-6">
+              <span className="text-gray-600 dark:text-gray-400 text-sm font-medium">Follow Us:</span>
+              <div className="flex space-x-4">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    whileHover={{ scale: 1.2, y: -2 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`text-gray-600 dark:text-gray-400 ${social.color} transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800`}
+                    aria-label={social.name}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+
+            {/* Newsletter Signup */}
+            <div className="flex items-center space-x-4">
+              <span className="text-gray-600 dark:text-gray-400 text-sm font-medium">Stay Updated:</span>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors"
+              >
+                Subscribe
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Bottom Bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-600 dark:text-gray-400 text-sm text-center md:text-left">
+              © {new Date().getFullYear()} VedaMotion Care Pvt Ltd. All rights reserved.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm text-center md:text-right">
+              Developed with{" "}
+              <motion.span
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, repeatDelay: 2 }}
+                className="inline-block"
+              >
+                ❤️
+              </motion.span>{" "}
+              by{" "}
+              <motion.a
+                href="https://its-chandan-portfolio.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors border-b border-transparent hover:border-blue-600 dark:hover:border-blue-400"
+              >
+                Chandan Kumar
+              </motion.a>
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-blue-300 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-32 h-32 bg-green-300 rounded-full filter blur-3xl"></div>
+      </div>
+    </footer>
   )
 }
 

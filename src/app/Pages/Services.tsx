@@ -27,7 +27,7 @@ function Services() {
         services={[
           {
             title: "Musculoskeletal Physiotherapy",
-            img: "/Images/leftImgSectionImage/3rdImg.jpeg",
+            img: "/Images/leftImgSectionImage/1stImg.jpeg",
             defination: "A chiropractic adjustment, also called spinal manipulation, is a procedure done by a chiropractor using the hands or small instruments to apply controlled force to a spinal joint. The goal is to improve spinal motion and the physical function of the entire body."
           },
           {
