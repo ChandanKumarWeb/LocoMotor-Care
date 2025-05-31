@@ -94,8 +94,8 @@ function HeroSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed"
         >
-          At VedaMotion Care, we believe healing begins with connection. Whether you're looking to book a home visit,
-          schedule a tele-rehab session, or simply want to ask a question, we're just a call or message away.
+          At VedaMotion Care, we believe healing begins with connection. Whether you&apos;re looking to book a home visit,
+          schedule a tele-rehab session, or simply want to ask a question, we&apos;re just a call or message away.
         </motion.p>
       </div>
 
@@ -201,7 +201,7 @@ function ContactMethodsSection() {
       icon: Mail,
       title: "Email Us Anytime",
       content: "vedamotioncare@gmail.com",
-      subtitle: "Whether it's questions, feedback, or future collaborations, we'd love to hear from you.",
+      subtitle: "Whether it&apos;res questions, feedback, or future collaborations, we'red love to hear from you.",
       color: "blue",
       action: "mailto:vedamotioncare@gmail.com",
     },
@@ -370,7 +370,7 @@ function ContactFormSection() {
           </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">Tell Us How We Can Help</h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Your health story matters. Drop us a message, and we'll respond within 24 hours.
+            Your health story matters. Drop us a message, and we&apos;rell respond within 24 hours.
           </p>
         </AnimatedSection>
 
@@ -397,7 +397,7 @@ function ContactFormSection() {
                 </motion.div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Message Sent Successfully!</h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Thank you for reaching out. We'll get back to you within 24 hours.
+                  Thank you for reaching out. We&apos;rell get back to you within 24 hours.
                 </p>
               </motion.div>
             ) : (
@@ -512,7 +512,7 @@ function ContactFormSection() {
                     className="mt-1 mr-3 text-blue-600"
                   />
                   <label className="text-sm text-gray-700 dark:text-gray-300">
-                    I agree to VedaMotion Care's privacy policy. *
+                    I agree to VedaMotion Care&apos;res privacy policy. *
                   </label>
                 </motion.div>
 
@@ -575,7 +575,7 @@ function JoinNetworkSection() {
           </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Join Our Healing Network</h2>
           <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Are you a physiotherapist or wellness professional? Let's empower India together with accessible care.
+            Are you a physiotherapist or wellness professional? Let&apos;res empower India together with accessible care.
           </p>
         </AnimatedSection>
 
@@ -592,7 +592,7 @@ function JoinNetworkSection() {
 
         <AnimatedSection delay={0.5}>
           <p className="text-blue-100 mt-8">
-            We're working behind the scenes on our digital platforms. Till then, reach us directly via email, WhatsApp,
+            We&apos;re working behind the scenes on our digital platforms. Till then, reach us directly via email, WhatsApp,
             or our contact form.
           </p>
         </AnimatedSection>
