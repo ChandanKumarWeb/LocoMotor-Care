@@ -39,7 +39,6 @@
   --sidebar-ring: oklch(0.705 0.015 286.067);
 }
 
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -118,15 +117,14 @@
   }
   body {
     @apply bg-background text-foreground;
-      overflow-x: hidden;
-
+    overflow-x: hidden;
   }
 }
 
-.appointmentBtn{
+.appointmentBtn {
   font-size: 0.7rem;
 }
-.homeImgTxt{
+.homeImgTxt {
   position: relative;
   width: 40%;
   top: 50%;
@@ -135,31 +133,29 @@
   /* font-size: 2vw; */
   /* font-weight: 700; */
 }
-.heading{
+.heading {
   font-size: 2.3rem;
   letter-spacing: 2px;
   font-weight: bold;
 }
 
-li{
+li {
   list-style: none;
 }
-.introTxt{
+.introTxt {
   color: var(--introText);
   font: 16px;
   letter-spacing: 2px;
 }
-.aboutTxt{
+.aboutTxt {
   color: var(--introText);
 }
-/* Modern Scrollbar for Modal */
 /* Modern Scrollbar for Modal */
 .custom-scroll {
   scrollbar-width: thin;
   scrollbar-color: #cbd5e1 transparent;
 }
 
-/* Chrome, Edge, Safari */
 .custom-scroll::-webkit-scrollbar {
   width: 10px;
 }
@@ -173,7 +169,7 @@ li{
   border-radius: 9999px;
   border: 2px solid transparent;
   background-clip: content-box;
-  box-shadow: 0 2px 8px 0 rgba(30,41,59,0.08);
+  box-shadow: 0 2px 8px 0 rgba(30, 41, 59, 0.08);
   transition: background 0.2s;
 }
 
@@ -188,14 +184,56 @@ li{
 .dark .custom-scroll:hover::-webkit-scrollbar-thumb {
   background: #64748b; /* Tailwind slate-500 */
 }
+/* Heart animation */
+.veda-heart {
+  display: inline-block;
+  animation: vedaHeartBeat 2s infinite;
+  animation-delay: 3s;
+  transform-origin: center;
+}
+/* ...existing code... */
 
+@keyframes vedaHeartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  10%,
+  30% {
+    transform: scale(1.2);
+  }
+  20%,
+  40% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(0.98);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  80% {
+    transform: scale(1);
+  }
+}
+
+/* ...existing code... */
 /* animation for accordian */
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px);}
-  to { opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .animate-fade-in {
-  animation: fade-in 0.4s cubic-bezier(0.4,0,0.2,1) both;
+  animation: fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 @media (max-width: 640px) {
   .heading {

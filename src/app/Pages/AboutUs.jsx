@@ -2,22 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import {
-  Heart,
-  Users,
-  Target,
-  Sparkles,
-  MapPin,
-  Mail,
-  Phone,
-  ArrowRight,
-  CheckCircle,
-  Star,
-  Building,
-  UserPlus,
-  Briefcase,
-  Globe,
-} from "lucide-react";
+import { Heart, Users, Target, Sparkles, MapPin, Mail, Phone, ArrowRight, CheckCircle, Star, Building, UserPlus, Briefcase, Globe } from 'lucide-react';
 import { CustomAccordion } from "../Components/CustomAccordion";
 
 // Animated Section Component
@@ -44,12 +29,12 @@ function HeroSection() {
   const y = useTransform(scrollY, [0, 500], [0, 150]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-green-50 dark:bg-black dark:from-black dark:via-black dark:to-black">
       {/* Animated Background Elements */}
-      <motion.div style={{ y }} className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-<div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-60 h-60 sm:w-72 sm:h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>      </motion.div>
+      <motion.div style={{ y }} className="absolute inset-0 opacity-10 dark:opacity-20">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 dark:bg-blue-500 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-green-300 dark:bg-green-500 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl animate-pulse delay-1000"></div>
+<div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-60 h-60 sm:w-72 sm:h-72 bg-purple-300 dark:bg-purple-500 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl animate-pulse delay-2000"></div>      </motion.div>
 
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
         <motion.div
@@ -90,7 +75,7 @@ function HeroSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+            className="border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
           >
             Learn More
           </motion.button>
@@ -107,12 +92,12 @@ function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-          className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-gray-400 dark:border-gray-500 rounded-full flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            className="w-1 h-3 bg-gray-400 rounded-full mt-2"
+            className="w-1 h-3 bg-gray-400 dark:bg-gray-500 rounded-full mt-2"
           />
         </motion.div>
       </motion.div>
@@ -168,7 +153,7 @@ function EssenceSection() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-blue-100 to-green-100 dark:from-blue-900/20 dark:to-green-900/20 rounded-2xl p-8 shadow-xl">
+            <div className="bg-gradient-to-br from-blue-100 to-green-100 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 shadow-xl dark:shadow-2xl dark:shadow-gray-900/50">
               <MapPin className="w-12 h-12 text-blue-600 mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                 Born in Bomdila
@@ -193,7 +178,7 @@ function VisionMissionSection() {
   const missionInView = useInView(missionRef, { once: true });
 
   return (
-    <section className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+    <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Vision */}
@@ -204,7 +189,7 @@ function VisionMissionSection() {
               visionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
             }
             transition={{ duration: 0.8 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl dark:shadow-2xl dark:shadow-gray-900/50"
           >
             <motion.div
               whileHover={{ scale: 1.1, rotate: 360 }}
@@ -232,7 +217,7 @@ function VisionMissionSection() {
               missionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }
             }
             transition={{ duration: 0.8 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl dark:shadow-2xl dark:shadow-gray-900/50"
           >
             <motion.div
               whileHover={{ scale: 1.1 }}
@@ -298,7 +283,7 @@ function WhyChooseUsSection() {
             <AnimatedSection key={index} delay={index * 0.1}>
               <motion.div
                 whileHover={{ y: -10, scale: 1.05 }}
-                className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 shadow-lg text-center h-full"
+                className="bg-gradient-to-br from-blue-50 to-green-50 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 shadow-lg dark:shadow-xl dark:shadow-gray-900/50 text-center h-full border dark:border-gray-600"
               >
                 <motion.div
                   whileHover={{ scale: 1.2, rotate: 360 }}
@@ -325,7 +310,7 @@ function WhyChooseUsSection() {
 // Partner & Career Section
 function PartnerCareerSection() {
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600">
+    <section className="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600 dark:bg-gradient-to-br dark:from-gray-900 dark:to-black">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
@@ -342,7 +327,7 @@ function PartnerCareerSection() {
           <AnimatedSection delay={0.2}>
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20"
+              className="bg-white/10 dark:bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/20 dark:border-white/10"
             >
               <Building className="w-12 h-12 text-white mb-6" />
               <h3 className="text-2xl font-bold text-white mb-4">
@@ -387,7 +372,7 @@ function PartnerCareerSection() {
           <AnimatedSection delay={0.4}>
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20"
+              className="bg-white/10 dark:bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/20 dark:border-white/10"
             >
               <Briefcase className="w-12 h-12 text-white mb-6" />
               <h3 className="text-2xl font-bold text-white mb-4">
@@ -436,7 +421,7 @@ function PartnerCareerSection() {
 // Contact Section
 function ContactSection() {
   return (
-    <section className="py-20 px-4 bg-gray-900 text-white">
+    <section className="py-20 px-4 bg-gray-900 dark:bg-black text-white">
       <div className="max-w-4xl mx-auto text-center">
         <AnimatedSection>
           <motion.div whileHover={{ scale: 1.1 }} className="inline-block mb-8">
@@ -484,7 +469,7 @@ function ContactSection() {
 // Main About Us Component
 export default function AboutUs() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-black">
       <HeroSection />
       <EssenceSection />
       <VisionMissionSection />
@@ -492,7 +477,7 @@ export default function AboutUs() {
       <PartnerCareerSection />
       <ContactSection />
       <motion.div
-        className="heading text-center my-4"
+        className="heading text-center my-4 text-gray-900 dark:text-white text-2xl font-semibold"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}

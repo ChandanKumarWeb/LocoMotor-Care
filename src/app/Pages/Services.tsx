@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import Banner from "../Components/Banner";
 import ServiceBanner from "../../../public/Images/Banner Images/ServiceBanner.jpg";
 import ServiceCard from "@/app/Components/ServicesCard";
-import { CustomAccordion } from "@/app/Components/CustomAccordion";
 function Services() {
   return (
     <div>
@@ -110,16 +109,6 @@ function Services() {
           },
         ]}
       />
-      <motion.div
-        className="heading text-center my-4"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.8 }}
-      >
-        Frequently Asked Questions (FAQ)
-      </motion.div>
-      <CustomAccordion />
 
     </div>
   );

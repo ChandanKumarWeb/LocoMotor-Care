@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import Modal from "@/app/Components/ModalProps";
+import Modal from "@/app/Components/ModalProps"
 
 import { useState, useRef } from "react"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
@@ -19,7 +19,7 @@ import {
   Globe,
   MessageSquare,
 } from "lucide-react"
-import AppointmentForm from "@/app/Components/AppointmentForm";
+import AppointmentForm from "@/app/Components/AppointmentForm"
 
 // Animated Section Component
 function AnimatedSection({
@@ -53,12 +53,12 @@ function HeroSection() {
   const y = useTransform(scrollY, [0, 500], [0, 150])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-green-50 dark:bg-black dark:from-black dark:via-black dark:to-black">
       {/* Animated Background Elements */}
-      <motion.div style={{ y }} className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
+      <motion.div style={{ y }} className="absolute inset-0 opacity-10 dark:opacity-20">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 dark:bg-blue-500 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-green-300 dark:bg-green-500 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-60 h-60 sm:w-72 sm:h-72 bg-purple-300 dark:bg-purple-500 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl animate-pulse delay-2000"></div>
       </motion.div>
 
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
@@ -94,8 +94,8 @@ function HeroSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed"
         >
-          At VedaMotion Care, we believe healing begins with connection. Whether you&#39;re looking to book a home visit,
-          schedule a tele-rehab session, or simply want to ask a question, we&#39;re just a call or message away.
+          At VedaMotion Care, we believe healing begins with connection. Whether you're looking to book a home visit,
+          schedule a tele-rehab session, or simply want to ask a question, we're just a call or message away.
         </motion.p>
       </div>
 
@@ -109,12 +109,12 @@ function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-          className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-gray-400 dark:border-gray-500 rounded-full flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            className="w-1 h-3 bg-gray-400 rounded-full mt-2"
+            className="w-1 h-3 bg-gray-400 dark:bg-gray-500 rounded-full mt-2"
           />
         </motion.div>
       </motion.div>
@@ -145,7 +145,7 @@ function LocationSection() {
           <AnimatedSection delay={0.2}>
             <motion.div
               whileHover={{ y: -10, scale: 1.05 }}
-              className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl p-6 text-center shadow-lg"
+              className="bg-gradient-to-br from-blue-50 to-blue-100 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 text-center shadow-lg dark:shadow-xl dark:shadow-gray-900/50 border dark:border-gray-600"
             >
               <Globe className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Telerehabilitation</h3>
@@ -158,7 +158,7 @@ function LocationSection() {
           <AnimatedSection delay={0.4}>
             <motion.div
               whileHover={{ y: -10, scale: 1.05 }}
-              className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-2xl p-6 text-center shadow-lg"
+              className="bg-gradient-to-br from-green-50 to-green-100 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 text-center shadow-lg dark:shadow-xl dark:shadow-gray-900/50 border dark:border-gray-600"
             >
               <Heart className="w-12 h-12 text-green-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Home Visits</h3>
@@ -171,7 +171,7 @@ function LocationSection() {
           <AnimatedSection delay={0.6}>
             <motion.div
               whileHover={{ y: -10, scale: 1.05 }}
-              className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl p-6 text-center shadow-lg"
+              className="bg-gradient-to-br from-purple-50 to-purple-100 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 text-center shadow-lg dark:shadow-xl dark:shadow-gray-900/50 border dark:border-gray-600"
             >
               <Star className="w-12 h-12 text-purple-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Coming Soon</h3>
@@ -214,10 +214,10 @@ function ContactMethodsSection() {
       modal: true,
     },
   ]
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
-    <section className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+    <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">Get in Touch</h2>
@@ -233,7 +233,7 @@ function ContactMethodsSection() {
                   onClick={() => setModalOpen(true)}
                   whileHover={{ y: -10, scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow cursor-pointer text-left"
+                  className="w-full bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl dark:shadow-2xl dark:shadow-gray-900/50 hover:shadow-2xl transition-shadow cursor-pointer text-left border dark:border-gray-600"
                 >
                   <motion.div
                     whileHover={{ scale: 1.2, rotate: 360 }}
@@ -269,7 +269,7 @@ function ContactMethodsSection() {
                   href={method.action}
                   whileHover={{ y: -10, scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="block bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow cursor-pointer"
+                  className="block bg-white h-full dark:bg-gray-800 rounded-2xl p-8 shadow-xl dark:shadow-2xl dark:shadow-gray-900/50 hover:shadow-2xl transition-shadow cursor-pointer border dark:border-gray-600"
                 >
                   <motion.div
                     whileHover={{ scale: 1.2, rotate: 360 }}
@@ -306,8 +306,8 @@ function ContactMethodsSection() {
         </div>
       </div>
       <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
-              <AppointmentForm />
-            </Modal>
+        <AppointmentForm />
+      </Modal>
     </section>
   )
 }
@@ -319,7 +319,7 @@ function ContactFormSection() {
     email: "",
     phone: "",
     message: "",
-    preferredResponse: "email",
+    preferredResponse: "email", // Default to email
     agreeToPolicy: false,
   })
 
@@ -327,7 +327,14 @@ function ContactFormSection() {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleInputChange = (field: string, value: string | boolean) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
+    setFormData((prev) => {
+      const updated = { ...prev, [field]: value }
+      // Reset preferred response to email when phone is cleared
+      if (field === "phone" && !value) {
+        updated.preferredResponse = "email"
+      }
+      return updated
+    })
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -363,14 +370,14 @@ function ContactFormSection() {
           </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">Tell Us How We Can Help</h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Your health story matters. Drop us a message, and we&#39;ll respond within 24 hours.
+            Your health story matters. Drop us a message, and we'll respond within 24 hours.
           </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.3}>
           <motion.form
             onSubmit={handleSubmit}
-            className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 shadow-xl"
+            className="bg-gradient-to-br from-blue-50 to-green-50 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 shadow-xl dark:shadow-2xl dark:shadow-gray-900/50 border dark:border-gray-600"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
@@ -390,7 +397,7 @@ function ContactFormSection() {
                 </motion.div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Message Sent Successfully!</h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Thank you for reaching out. We&#39;ll get back to you within 24 hours.
+                  Thank you for reaching out. We'll get back to you within 24 hours.
                 </p>
               </motion.div>
             ) : (
@@ -440,6 +447,41 @@ function ContactFormSection() {
                   />
                 </motion.div>
 
+                {/* Preferred Response - Only show if phone number is entered */}
+                {formData.phone && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0, y: -20 }}
+                    animate={{ opacity: 1, height: "auto", y: 0 }}
+                    exit={{ opacity: 0, height: 0, y: -20 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Preferred Mode of Response
+                    </label>
+                    <div className="flex flex-wrap gap-4">
+                      {["email", "call", "whatsapp"].map((option) => (
+                        <motion.label
+                          key={option}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="flex items-center cursor-pointer"
+                        >
+                          <input
+                            type="radio"
+                            name="preferredResponse"
+                            value={option}
+                            checked={formData.preferredResponse === option}
+                            onChange={(e) => handleInputChange("preferredResponse", e.target.value)}
+                            className="mr-2 text-blue-600"
+                          />
+                          <span className="text-gray-700 dark:text-gray-300 capitalize">{option}</span>
+                        </motion.label>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
                 {/* Message */}
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message *</label>
@@ -452,33 +494,6 @@ function ContactFormSection() {
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-none"
                     placeholder="Tell us how we can help you..."
                   />
-                </motion.div>
-
-                {/* Preferred Response */}
-                <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Preferred Mode of Response
-                  </label>
-                  <div className="flex flex-wrap gap-4">
-                    {["email", "call", "whatsapp"].map((option) => (
-                      <motion.label
-                        key={option}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center cursor-pointer"
-                      >
-                        <input
-                          type="radio"
-                          name="preferredResponse"
-                          value={option}
-                          checked={formData.preferredResponse === option}
-                          onChange={(e) => handleInputChange("preferredResponse", e.target.value)}
-                          className="mr-2 text-blue-600"
-                        />
-                        <span className="text-gray-700 dark:text-gray-300 capitalize">{option}</span>
-                      </motion.label>
-                    ))}
-                  </div>
                 </motion.div>
 
                 {/* Privacy Policy */}
@@ -497,7 +512,7 @@ function ContactFormSection() {
                     className="mt-1 mr-3 text-blue-600"
                   />
                   <label className="text-sm text-gray-700 dark:text-gray-300">
-                    I agree to VedaMotion Care&#39;s privacy policy. *
+                    I agree to VedaMotion Care's privacy policy. *
                   </label>
                 </motion.div>
 
@@ -548,7 +563,7 @@ function ContactFormSection() {
 // Join Network Section
 function JoinNetworkSection() {
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600">
+    <section className="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600 dark:bg-gradient-to-br dark:from-gray-900 dark:to-black">
       <div className="max-w-4xl mx-auto text-center">
         <AnimatedSection>
           <motion.div
@@ -560,7 +575,7 @@ function JoinNetworkSection() {
           </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Join Our Healing Network</h2>
           <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Are you a physiotherapist or wellness professional? Let&#39;s empower India together with accessible care.
+            Are you a physiotherapist or wellness professional? Let's empower India together with accessible care.
           </p>
         </AnimatedSection>
 
@@ -577,7 +592,7 @@ function JoinNetworkSection() {
 
         <AnimatedSection delay={0.5}>
           <p className="text-blue-100 mt-8">
-            We&#39;re working behind the scenes on our digital platforms. Till then, reach us directly via email, WhatsApp,
+            We're working behind the scenes on our digital platforms. Till then, reach us directly via email, WhatsApp,
             or our contact form.
           </p>
         </AnimatedSection>
@@ -588,15 +603,13 @@ function JoinNetworkSection() {
 
 // Main Contact Us Component
 export default function ContactUs() {
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-black">
       <HeroSection />
       <LocationSection />
       <ContactMethodsSection />
       <ContactFormSection />
       <JoinNetworkSection />
-      
     </div>
   )
 }
